@@ -1,5 +1,5 @@
 # InciDashboard_e1b
-[![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e1b.svg?branch=master)]
+[![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e1b.svg?branch=master)](https://travis-ci.org/Arquisoft/InciDashboard_e1b)
 
 
 InciDashboard e1b
