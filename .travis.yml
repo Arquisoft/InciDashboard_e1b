@@ -3,4 +3,7 @@ jdk:
 - oraclejdk8
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+<<<<<<< HEAD
 script: ant build
+=======
+>>>>>>> branch 'master' of https://github.com/Arquisoft/InciDashboard_e1b.git
