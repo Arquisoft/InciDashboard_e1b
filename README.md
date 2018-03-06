@@ -1,4 +1,7 @@
 # InciDashboard_e1b
+[![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e1b.svg?branch=master)]
+
+
 InciDashboard e1b
 
 
