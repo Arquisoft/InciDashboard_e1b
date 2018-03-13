@@ -14,3 +14,4 @@ InciDashboard e1b
 
 # Ejecución:	
 
+Abrimos una linea de comandos dentro de la carpeta del proyecto y escribimos mvn spring-boot:run
