@@ -1,10 +1,16 @@
-<html>
-<head>
-<title>Hola</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+
 <body>
-<h1>Dashboard0 skeleton</h1>
-<h2>Receiving messages for you:</h2>
-<div id="messages"></div>
+
+	<nav th:replace="fragments/nav" />
+
+	<div class="container" style="text-align: center">
+		<h2>Panel de Control InciDashBoard</h2>
+	</div>
+
+	<footer th:replace="fragments/footer" />
+
 </body>
 </html>
