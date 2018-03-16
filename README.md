@@ -1,6 +1,6 @@
 # InciDashboard_e1b
 [![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e1b.svg?branch=master)](https://travis-ci.org/Arquisoft/InciDashboard_e1b)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6308efdd6cbf43fcb00b4f1f8b3e83f3)](https://www.codacy.com/app/jelabra/InciDashboard_e1b?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/InciDashboard_e1b&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6308efdd6cbf43fcb00b4f1f8b3e83f3)](https://app.codacy.com/app/mariodod/InciDashboard_e1b/dashboard)
 [![codecov](https://codecov.io/gh/Arquisoft/InciDashboard_e1b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/InciDashboard_e1b)
 
 InciDashboard e1b
