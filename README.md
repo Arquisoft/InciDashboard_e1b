@@ -15,7 +15,7 @@ InciDashboard e1b
 
 # Instalación y ejecución de Apache Kafka:
 Vamos a la página web de apache kafka, en el enlace a la descarga escogemos el primer mirror. Una vez descargado descomprimimos el archivo una vez y dentro de este aparecerá otro archivo que volvemos a descomprimir
-Abrimos la ventana de comandos: 
+Abrimos la ventana de comandos:
   -Nos desplazamos hasta la carpeta donde se encuentra kafka_2.11-1.0.1
   -Ejecutamos bin\windows\zookeeper-server-start.bat config\zookeeper.properties
   -Ejecutamos bin\windows\kafka-server-start.bat config\server.properties
