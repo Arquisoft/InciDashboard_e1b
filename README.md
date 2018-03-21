@@ -19,7 +19,7 @@ Abrimos la ventana de comandos:
 - Nos desplazamos hasta la carpeta donde se encuentra kafka_2.11-1.0.1
 - Ejecutamos bin\windows\zookeeper-server-start.bat config\zookeeper.properties
 - Ejecutamos bin\windows\kafka-server-start.bat config\server.properties
-Abrimos la ventana de comandos y escribimos el comando de la imagen kafka2
+
 Si da error borramos la carpeta c temp kafka logs
 
 # Ejecución:	
