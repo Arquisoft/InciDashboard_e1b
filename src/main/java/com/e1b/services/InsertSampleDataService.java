@@ -15,7 +15,7 @@ public class InsertSampleDataService {
 	
 	@PostConstruct
 	public void init() {
-		Operario o1=new Operario("Redondo","lambdalove");
+		Operario o1=new Operario("o1","123456");
 		
 		operariosService.addOperario(o1);
 	}
