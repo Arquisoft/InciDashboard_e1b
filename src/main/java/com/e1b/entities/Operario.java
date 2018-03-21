@@ -1,9 +1,13 @@
 package com.e1b.entities;
 
+import java.util.Set;
+
 public class Operario {
 	
 	private String username;
 	private String password;
+	
+	private Set<Incidencia> incidencias;
 	
 	public Operario() {}
 
@@ -26,6 +30,14 @@ public class Operario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set<Incidencia> getIncidencias() {
+		return incidencias;
+	}
+
+	public void setIncidencias(Set<Incidencia> incidencias) {
+		this.incidencias = incidencias;
 	}
 	
 	
