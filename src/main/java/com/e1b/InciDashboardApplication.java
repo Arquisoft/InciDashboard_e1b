@@ -9,4 +9,5 @@ public class InciDashboardApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InciDashboardApplication.class, args);
 	}
-}
+ }
+ 
