@@ -15,9 +15,9 @@ public class DashboardController {
         return "index";
     }
     
-    @RequestMapping("/login")
-    public String login(Model model) {
-        return "login";
+    @RequestMapping("/home")
+    public String home(Model model) {
+        return "home";
     }
 
 }
