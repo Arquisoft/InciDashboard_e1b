@@ -4,24 +4,24 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.e1b</groupId>
-    <artifactId>InciDashboard</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+	<artifactId>InciDashboard</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-    <name>InciDashboard</name>
-    <description>Panel de control y monitorizacion de incidencias</description>
+	<name>InciDashboard</name>
+	<description>Panel de control y monitorizacion de incidencias</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.4.RELEASE</version>
 	</parent>
-	
+
 	<dependencies>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-kafka</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,15 +48,20 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		
+
 		<dependency>
-			 <groupId>org.springframework.boot</groupId>
-			 <artifactId>spring-boot-starter-security</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<dependency>
-			 <groupId>org.thymeleaf.extras</groupId>
-			 <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Final</version>
 		</dependency>
 
 	</dependencies>
@@ -106,7 +111,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		
+
 	</build>
 
 	<reporting>

@@ -15,15 +15,15 @@
 						<th >Nombre</th>
 						<th>Descripción</th>
 						<th>Fecha de Caducidad</th>
-						<th class="col-md-1"></th>
-						<th class="col-md-1"></th>
+						<th>Estado</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="inci : ${incidenciasList}">
+					<tr th:each="inci : ${inciList}">
 						<td th:text="${inci.nombreIncidencia}">Nombre</td>
 						<td th:text="${inci.descripcion}">Descripción</td>
 						<td th:text="${inci.fechaCaducidad}">Fecha de Caducidad</td>
+						<td th:text="${inci.estado}">Estado</td>
 					</tr>
 				</tbody>
 			</table>
