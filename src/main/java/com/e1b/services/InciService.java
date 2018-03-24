@@ -9,11 +9,12 @@ import com.e1b.entities.Incidencia;
 import com.e1b.repositories.InciRepository;
 
 
+
 @Service
 public class InciService {
 
 	@Autowired
-	private InciRepository inciRepository;
+	public InciRepository inciRepository;
 	
 	public List<Incidencia> findAll(){
 		return inciRepository.findAll();
