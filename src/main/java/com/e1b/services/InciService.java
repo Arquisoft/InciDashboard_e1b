@@ -25,5 +25,8 @@ public class InciService {
 	public Page<Incidencia> getIncidenciasByUser(Operario op, Pageable pageable){
 		return inciRepository.findInciByOperario(op, pageable);
 	}
+	public void addIncidencia(Incidencia i) {
+		inciRepository.save(i);
+	}
 	
 }

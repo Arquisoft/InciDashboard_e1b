@@ -36,5 +36,7 @@ public class InciController {
 		model.addAttribute("page", incidencias);
 		return "/incidencias/list";
 	}
+	
+	
 
 }
