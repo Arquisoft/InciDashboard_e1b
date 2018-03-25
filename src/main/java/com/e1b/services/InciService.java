@@ -23,7 +23,7 @@ public class InciService {
 	}
 	
 	public Page<Incidencia> getIncidenciasByUser(Operario op, Pageable pageable){
-		return inciRepository.findInciByUser(op, pageable);
+		return inciRepository.findInciByOperario(op, pageable);
 	}
 	
 }

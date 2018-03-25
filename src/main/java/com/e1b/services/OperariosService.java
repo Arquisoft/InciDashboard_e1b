@@ -13,14 +13,14 @@ public class OperariosService {
 	private OperariosRepository operariosRepository;
 
 	public void addOperario(Operario o1) {
-		operariosRepository.addOperario(o1);
+		operariosRepository.save(o1);
 	}
 	
 	public void findByUsername(String username) {
 		operariosRepository.findByUsername(username);
 	}
 	
-    public Operario getUser(String id) {
+    public Operario getUser(Long id) {
     	return operariosRepository.findOne(id);
     }
 

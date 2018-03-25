@@ -9,16 +9,12 @@ import org.springframework.stereotype.Repository;
 import com.e1b.entities.Incidencia;
 import com.e1b.entities.Operario;
 
+public interface OperariosRepository extends CrudRepository<Operario, Long> {
 
-public interface OperariosRepository extends CrudRepository<Operario, Long>{
-	
-	//private Map<String,Operario> bd = new HashMap<String,Operario>();
+	// private Map<String,Operario> bd = new HashMap<String,Operario>();
 
 	public Operario findByUsername(String username);
-
-	public void addOperario(Operario o1);
-
-	public Operario findOne(String id);
-
+	
+	public Operario findOne(Long id);
 
 }

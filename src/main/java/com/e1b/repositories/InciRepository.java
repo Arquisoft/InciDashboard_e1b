@@ -13,6 +13,6 @@ public interface InciRepository extends CrudRepository<Incidencia, Long> {
 
 	Page<Incidencia> findAll(Pageable pageable);
 	
-	Page<Incidencia> findInciByUser(Operario op, Pageable pageable);
+	Page<Incidencia> findInciByOperario(Operario op, Pageable pageable);
 	
 }
