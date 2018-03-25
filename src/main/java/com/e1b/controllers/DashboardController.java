@@ -14,5 +14,10 @@ public class DashboardController {
     public String landing(Model model) {
         return "index";
     }
+    
+    @RequestMapping("/home")
+    public String home(Model model) {
+        return "home";
+    }
 
 }
