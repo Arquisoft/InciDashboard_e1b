@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.e1b.entities.Incidencia;
 import com.e1b.entities.Operario;
 
-@Repository
 public interface InciRepository extends CrudRepository<Incidencia, Long> {
 
 	Page<Incidencia> findAll(Pageable pageable);

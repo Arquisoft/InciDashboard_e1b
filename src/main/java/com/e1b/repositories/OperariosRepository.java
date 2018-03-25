@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.e1b.entities.Incidencia;
 import com.e1b.entities.Operario;
 
-@Repository
+
 public interface OperariosRepository extends CrudRepository<Operario, Long>{
 	
 	//private Map<String,Operario> bd = new HashMap<String,Operario>();

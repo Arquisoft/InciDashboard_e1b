@@ -20,10 +20,10 @@ import com.e1b.services.OperariosService;
 public class InciController {
 
 	@Autowired
-	public InciService inciService;
+	InciService inciService;
 
-	@Autowired
-	public OperariosService opService;
+//	@Autowired
+//	OperariosService opService;
 	
 	@RequestMapping(value = "/incidencias/list", method = RequestMethod.GET)
 	public String list(Model model, Pageable pageable) {
