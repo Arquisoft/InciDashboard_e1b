@@ -17,6 +17,16 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/css/custom.css" />
+
+<script th:inline="javascript">
+  	  /*<![CDATA[*/
+		  /*[# th:each="inci : ${incis}"]*/
+	        var i = new google.maps.LatLng(/*[[${inci.lat}]]*/, /*[[${inci.long}]]*/);
+	        addMarcador(i,/*[[${inci.name}]]*/);
+	      /*[/]*/
+	  /*]]>*/
+</script> 
+
 </head>
 <body>
 
