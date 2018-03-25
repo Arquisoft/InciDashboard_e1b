@@ -16,8 +16,8 @@ public class OperariosService {
 		operariosRepository.save(o1);
 	}
 	
-	public void findByUsername(String username) {
-		operariosRepository.findByUsername(username);
+	public Operario findByUsername(String username) {
+		return operariosRepository.findByUsername(username);
 	}
 	
     public Operario getUser(Long id) {
