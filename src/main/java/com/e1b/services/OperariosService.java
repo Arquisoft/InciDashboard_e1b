@@ -15,5 +15,14 @@ public class OperariosService {
 	public void addOperario(Operario o1) {
 		operariosRepository.addOperario(o1);
 	}
+	
+	public void findByUsername(String username) {
+		operariosRepository.findByUsername(username);
+	}
+	
+    public Operario getUser(String id) {
+    	return operariosRepository.findOne(id);
+    }
+
 
 }
