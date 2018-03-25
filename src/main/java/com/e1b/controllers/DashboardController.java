@@ -19,10 +19,5 @@ public class DashboardController {
     public String home(Model model) {
         return "home";
     }
-    
-    @RequestMapping("/map")
-    public String map(Model model) {
-    	return "map";
-    }
 
 }
