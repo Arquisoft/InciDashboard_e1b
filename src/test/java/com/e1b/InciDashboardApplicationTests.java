@@ -5,55 +5,89 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.*;
+
+import com.e1b.pageobjects.PO_HomeView;
 import com.e1b.pageobjects.PO_LoginView;
 import com.e1b.pageobjects.PO_NavView;
 import com.e1b.pageobjects.PO_View;
+import com.e1b.util.SeleniumUtils;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class InciDashboardApplicationTests {
 	
-	//En Windows (Debe ser la versiÃ³n 46.0 y desactivar las actualizacioens automÃ¡ticas)):
-		static String PathFirefox = "C:\\Users\\mario\\Desktop\\universidad\\Tercero\\Segundo Semestre\\Sistemas Distribuidos e Internet\\Selenium\\Firefox46.win\\FirefoxPortable.exe";
-		//En MACOSX (Debe ser la versiÃ³n 46.0 y desactivar las actualizaciones automÃ¡ticas):
-		//static String PathFirefox = "/Applications/Firefox.app/Contents/MacOS/firefox-bin";
-		//ComÃºn a Windows y a MACOSX
+		static String PathFirefox = "C:\\Users\\Pablo\\Desktop\\Firefox46.win\\FirefoxPortable.exe";
+
 		static WebDriver driver = getDriver(PathFirefox);
 		static String URL = "http://localhost:8090";
-			
+
 		public static WebDriver getDriver(String PathFirefox) {
-			//Firefox (VersiÃ³n 46.0) sin geckodriver para Selenium 2.x.
-			System.setProperty("webdriver.firefox.bin",PathFirefox);
+			System.setProperty("webdriver.firefox.bin", PathFirefox);
 			WebDriver driver = new FirefoxDriver();
 			return driver;
 		}
 
-			
-		//Antes de cada prueba se navega al URL home de la aplicaciÃ³nn
 		@Before
-		public void setUp(){
+		public void setUp() {
 			driver.navigate().to(URL);
 		}
-			
-		//DespuÃ©s de cada prueba se borran las cookies del navegador
+
 		@After
-		public void tearDown(){
+		public void tearDown() {
 			driver.manage().deleteAllCookies();
 		}
 
-//		Inicio de sesion
-		@Test
-		public void TestLogin() {
-			driver.navigate().to(URL+"/login");
-			//Rellenamos el formulario
-			PO_LoginView.fillForm(driver, "o1" , "123456" );
-			//COmprobamos que entramos en la lista de los usuarios de la aplicacion
-			PO_View.checkElement(driver, "text", "Dashboard");
-			PO_NavView.clickOption(driver, "logout", "class", "btn btn-primary");
+		@BeforeClass
+		static public void begin() {
 		}
 
+		@AfterClass
+		static public void end() {
+			driver.quit();
+		}
+
+		/**
+		 * Comprueba que permite iniciar sesion en la aplicacion
+		 */
+		@Test
+		public void TestLogin() {
+			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			PO_LoginView.fillForm(driver, "o1", "123456");
+			PO_View.checkElement(driver, "text", "o1");
+		}
+
+		/**
+		 * Comprueba que permite desconectarse de la aplicacion
+		 */
+		@Test
+		public void TestLogout() {
+			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			PO_LoginView.fillForm(driver, "o1", "123456");
+			PO_View.checkElement(driver, "text", "o1");
+			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+			PO_View.checkElement(driver, "text", "Identificate");
+		}
+		
+		/**
+		 * Comprueba que se listan las incidencias que tiene asignadas el operario
+		 */
+		@Test
+		public void TestListInci() {
+			driver.navigate().to("http://localhost:8090/incidencias/list");
+			PO_LoginView.fillForm(driver, "o1", "123456");
+			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
+					PO_View.getTimeout());
+			assertTrue(elementos.size() == 3);
+			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+			PO_View.checkElement(driver, "text", "Identificate");
+		}
 }
