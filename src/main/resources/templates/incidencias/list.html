@@ -6,11 +6,10 @@
 
 	<div class="container">
 		<div class="table-responsive">
-			<table class="table table-hover" th:fragment="tableIncidencias"
-			>
+			<table class="table table-hover" th:fragment="tableIncidencias">
 				<thead>
 					<tr>
-						<th >Nombre</th>
+						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Fecha de Caducidad</th>
 						<th>Estado</th>
@@ -23,6 +22,7 @@
 						<td th:text="${inci.expirationgDate}">Fecha de Caducidad</td>
 						<td th:text="${inci.status}">Estado</td>
 					</tr>
+					
 				</tbody>
 			</table>
 		</div>

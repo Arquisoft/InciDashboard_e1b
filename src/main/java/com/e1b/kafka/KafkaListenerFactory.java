@@ -25,8 +25,8 @@ import java.util.Map;
 public class KafkaListenerFactory {
 
 	@Bean
-	KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String,Incidencia>> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String,Incidencia> factory = new ConcurrentKafkaListenerContainerFactory<>();
+	KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<Integer, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(consumerFactory());
 		factory.setConcurrency(3);
 		factory.getContainerProperties().setPollTimeout(3000);
@@ -34,9 +34,8 @@ public class KafkaListenerFactory {
 	}
 
 	@Bean
-	public ConsumerFactory<String, Incidencia> consumerFactory() {
-		return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),
-				new JsonDeserializer<>(Incidencia.class));
+	public ConsumerFactory<Integer, String> consumerFactory() {
+		return new DefaultKafkaConsumerFactory<>(consumerConfigs());
 	}
 
 	@Bean
@@ -48,7 +47,6 @@ public class KafkaListenerFactory {
 		props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "15000");
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, "es.uniovi");
 		return props;
 	}

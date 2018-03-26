@@ -20,7 +20,6 @@ public class Incidencia {
 	private String description;
 	private Date expirationgDate;
 	private Status status;
-	private String location;
 
 	@ManyToOne
 	private Operario operario;
@@ -36,14 +35,15 @@ public class Incidencia {
 		this.setLng(lng);
 	}
 
-	public Incidencia(String name, String description, Date expirationgDate, Status status, String location,
-			Operario operario) {
+	public Incidencia(String name, String description, Date expirationgDate, Status status, Operario operario,
+			double lat, double lng) {
 		super();
 		setName(name);
 		setDescription(description);
 		setExpirationgDate(expirationgDate);
 		setStatus(status);
-		setLocation(location);
+		this.lat = lat;
+		this.lng = lng;
 		this.operario = operario;
 	}
 
@@ -111,14 +111,6 @@ public class Incidencia {
 		this.status = status;
 	}
 
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -147,6 +139,8 @@ public class Incidencia {
 	@Override
 	public String toString() {
 		return "Incidencia [id=" + id + ", name=" + name + ", description=" + description + ", expirationgDate="
-				+ expirationgDate + ", status=" + status + ", location=" + location + ", operario=" + operario + "]";
+				+ expirationgDate + ", status=" + status + ", operario=" + operario + ", lat=" + lat + ", lng=" + lng
+				+ "]";
 	}
+
 }
