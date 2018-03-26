@@ -13,14 +13,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.e1b.entities.Incidencia;
-
 
 @Configuration
 @EnableKafka
 public class KafkaProducerFactory {
 	@Bean
-	public ProducerFactory<String, Incidencia> producerFactory() {
+	public ProducerFactory<String, String> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfigs());
 	}
 
@@ -39,7 +37,7 @@ public class KafkaProducerFactory {
 	}
 
 	@Bean
-	public KafkaTemplate<String, Incidencia> kafkaTemplate() {
-		return new KafkaTemplate<String, Incidencia>(producerFactory());
+	public KafkaTemplate<String, String> kafkaTemplate() {
+		return new KafkaTemplate<String, String>(producerFactory());
 	}
 }

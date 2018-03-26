@@ -65,7 +65,8 @@ public class InciController {
 		inciService.addIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}
-
+	
+	
 	public List<SseEmitter> getEmitters() {
 		return emitters;
 	}
