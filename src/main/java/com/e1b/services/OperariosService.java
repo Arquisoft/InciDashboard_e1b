@@ -13,7 +13,16 @@ public class OperariosService {
 	private OperariosRepository operariosRepository;
 
 	public void addOperario(Operario o1) {
-		operariosRepository.addOperario(o1);
+		operariosRepository.save(o1);
 	}
+	
+	public Operario findByUsername(String username) {
+		return operariosRepository.findByUsername(username);
+	}
+	
+    public Operario getUser(Long id) {
+    	return operariosRepository.findOne(id);
+    }
+
 
 }

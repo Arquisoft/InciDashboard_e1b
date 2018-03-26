@@ -23,6 +23,16 @@
                      </a>
                  </li>
             </ul>
+				<li><a href="/incidencias/list"  sec:authorize="isAuthenticated()">Mostrar incidencias</a></li>
+				<li sec:authorize="!isAuthenticated()"><a href="/login"
+					th:text="#{login.message}"> <span
+						class="glyphicon glyphicon-log-in"></span>
+				</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/logout"
+					th:text="#{logout.message}"> <span
+						class="glyphicon glyphicon-log-out"></span>
+				</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>
