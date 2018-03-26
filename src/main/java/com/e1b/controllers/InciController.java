@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,7 +44,7 @@ public class InciController {
 		model.addAttribute("page", incidencias);
 		return "/incidencias/list";
 	}
-	
+
 	@RequestMapping(value = "/incidencias/estado/{id}")
 	public String setStatus(Model model, @PathVariable Long id) {
 		model.addAttribute("id", id);
@@ -57,7 +56,7 @@ public class InciController {
 		model.addAttribute("statesList", lista);
 		return "user/estado";
 	}
-	
+
 	@RequestMapping(value = "/incidencias/estado/{id}", method = RequestMethod.POST)
 	public String getStatus(@PathVariable Long id, Status status) {
 		Incidencia inci = inciService.findById(id);
@@ -65,8 +64,20 @@ public class InciController {
 		inciService.addIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}
-	
-	
+
+	@RequestMapping(value = "/incidencias/statistics")
+	public String getStatus(Model model,Principal principal) {
+		long[] data= new long[4] ;
+		Operario o = opService.findByUsername(principal.getName());
+		List<Incidencia> incidencias = inciService.getIncidenciasByUser(o, null).getContent();
+		data[0]=incidencias.stream().filter(i->i.getStatus().equals(Status.ABIERTA)).count();
+		data[1]=incidencias.stream().filter(i->i.getStatus().equals(Status.CERRADA)).count();
+		data[2]=incidencias.stream().filter(i->i.getStatus().equals(Status.ANULADA)).count();
+		data[3]=incidencias.stream().filter(i->i.getStatus().equals(Status.EN_PROCESO)).count();
+		model.addAttribute("data",data);
+		return "/incidencias/statistics";
+	}
+
 	public List<SseEmitter> getEmitters() {
 		return emitters;
 	}
