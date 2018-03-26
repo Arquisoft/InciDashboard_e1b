@@ -9,19 +9,17 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import com.e1b.entities.Incidencia;
-
 @ManagedBean
 public class KafkaProducer {
 	private static final Logger logger = Logger.getLogger(KafkaProducer.class);
 	@Autowired
-	private KafkaTemplate<String, Incidencia> kafkaTemplate;
+	private KafkaTemplate<String, String> kafkaTemplate;
 
-	public void send(String topic, Incidencia data) {
-		ListenableFuture<SendResult<String, Incidencia>> future = kafkaTemplate.send(topic, data);
-		future.addCallback(new ListenableFutureCallback<SendResult<String, Incidencia>>() {
+	public void send(String topic, String data) {
+		ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
+		future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 			@Override
-			public void onSuccess(SendResult<String, Incidencia> result) {
+			public void onSuccess(SendResult<String, String> result) {
 				logger.info("Success on sending message \"" + data + "\" to topic " + topic);
 			}
 
