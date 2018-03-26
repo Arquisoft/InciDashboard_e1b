@@ -10,8 +10,12 @@ import com.e1b.entities.Operario;
 
 public interface InciRepository extends CrudRepository<Incidencia, Long> {
 
+	
+	// set estado = parametro @Transactional @Modifying
+	
 	Page<Incidencia> findAll(Pageable pageable);
 	
 	Page<Incidencia> findInciByOperario(Operario op, Pageable pageable);
+	
 	
 }

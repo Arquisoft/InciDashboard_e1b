@@ -20,7 +20,11 @@ public class InciService {
 	
 	public Page<Incidencia> findAll(Pageable pageable){
 		return inciRepository.findAll(pageable);
-	}
+	} 
+	
+	public Incidencia findById(Long id){
+		return inciRepository.findOne(id);
+	} 
 	
 	public Page<Incidencia> getIncidenciasByUser(Operario op, Pageable pageable){
 		return inciRepository.findInciByOperario(op, pageable);

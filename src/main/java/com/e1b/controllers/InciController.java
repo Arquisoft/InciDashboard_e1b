@@ -12,12 +12,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.e1b.entities.Incidencia;
 import com.e1b.entities.Operario;
+import com.e1b.entities.utils.Status;
 import com.e1b.services.InciService;
 import com.e1b.services.OperariosService;
 
@@ -41,6 +44,26 @@ public class InciController {
 		model.addAttribute("inciList", incidencias.getContent());
 		model.addAttribute("page", incidencias);
 		return "/incidencias/list";
+	}
+	
+	@RequestMapping(value = "/incidencias/estado/{id}")
+	public String setStatus(Model model, @PathVariable Long id) {
+		model.addAttribute("id", id);
+		List<String> lista = new ArrayList<String>();
+		lista.add(Status.ABIERTA.name());
+		lista.add(Status.CERRADA.name());
+		lista.add(Status.ANULADA.name());
+		lista.add(Status.EN_PROCESO.name());
+		model.addAttribute("statesList", lista);
+		return "user/estado";
+	}
+	
+	@RequestMapping(value = "/incidencias/estado/{id}", method = RequestMethod.POST)
+	public String getStatus(@PathVariable Long id, Status status) {
+		Incidencia inci = inciService.findById(id);
+		inci.setStatus(status);
+		inciService.addIncidencia(inci);
+		return "redirect:/incidencias/list";
 	}
 
 	public List<SseEmitter> getEmitters() {

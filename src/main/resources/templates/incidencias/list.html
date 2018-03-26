@@ -13,6 +13,7 @@
 						<th>Descripción</th>
 						<th>Fecha de Caducidad</th>
 						<th>Estado</th>
+						<th>Cambiar Estado</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -21,6 +22,9 @@
 						<td th:text="${inci.description}">Descripción</td>
 						<td th:text="${inci.expirationgDate}">Fecha de Caducidad</td>
 						<td th:text="${inci.status}">Estado</td>
+						<td><a th:href="${'/incidencias/estado/' + inci.id}"
+							th:text="'Cambiar estado'"></a></td>
+						</td>						
 					</tr>
 					
 				</tbody>
