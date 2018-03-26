@@ -40,7 +40,6 @@ public class InciController {
 		Operario o = opService.findByUsername(username);
 		Page<Incidencia> incidencias = new PageImpl<Incidencia>(new LinkedList<Incidencia>());
 		incidencias = inciService.getIncidenciasByUser(o, pageable);
-		
 		model.addAttribute("inciList", incidencias.getContent());
 		model.addAttribute("page", incidencias);
 		return "/incidencias/list";
