@@ -54,7 +54,7 @@ public class InciController {
 		lista.add(Status.ANULADA.name());
 		lista.add(Status.EN_PROCESO.name());
 		model.addAttribute("statesList", lista);
-		return "user/estado";
+		return "incidencias/estado";
 	}
 
 	@RequestMapping(value = "/incidencias/estado/{id}", method = RequestMethod.POST)
