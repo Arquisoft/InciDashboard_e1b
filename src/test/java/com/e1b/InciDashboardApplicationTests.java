@@ -1,45 +1,52 @@
 package com.e1b;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.e1b.pageobjects.PO_HomeView;
 import com.e1b.pageobjects.PO_LoginView;
-import com.e1b.pageobjects.PO_NavView;
 import com.e1b.pageobjects.PO_View;
 import com.e1b.util.SeleniumUtils;
 
 
 public class InciDashboardApplicationTests {
 	
-		static String PathFirefox = "C:\\Users\\Pablo\\Desktop\\Firefox46.win\\FirefoxPortable.exe";
+//		static String PathFirefox = "C:\\Users\\Pablo\\Desktop\\Firefox46.win\\FirefoxPortable.exe";
+//
+//		static WebDriver driver = getDriver(PathFirefox);
+//		static String URL = "http://localhost:8090";
+//
+//		public static WebDriver getDriver(String PathFirefox) {
+//			System.setProperty("webdriver.firefox.bin", PathFirefox);
+//			WebDriver driver = new FirefoxDriver();
+//			return driver;
+//		}
+//
+//		@Before
+//		public void setUp() {
+//			driver.navigate().to(URL);
+//		}
+	
+	  private static WebDriver driver;
+	  private String baseUrl;
 
-		static WebDriver driver = getDriver(PathFirefox);
-		static String URL = "http://localhost:8090";
-
-		public static WebDriver getDriver(String PathFirefox) {
-			System.setProperty("webdriver.firefox.bin", PathFirefox);
-			WebDriver driver = new FirefoxDriver();
-			return driver;
-		}
-
-		@Before
-		public void setUp() {
-			driver.navigate().to(URL);
-		}
+	  @Before
+	  public void setUp() throws Exception {
+	    driver = new HtmlUnitDriver();
+	    baseUrl = "http://localhost:8090";
+	    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	  }
 
 		@After
 		public void tearDown() {
@@ -60,6 +67,7 @@ public class InciDashboardApplicationTests {
 		 */
 		@Test
 		public void TestLogin() {
+			driver.get(baseUrl + "/");
 			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
 			PO_LoginView.fillForm(driver, "o1", "123456");
 			PO_View.checkElement(driver, "text", "o1");
