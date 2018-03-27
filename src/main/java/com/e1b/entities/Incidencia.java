@@ -25,6 +25,8 @@ public class Incidencia {
 	private Operario operario;
 	private double lat;
 	private double lng;
+	
+	private boolean hasNoti;
 
 	public Incidencia() {
 	}
@@ -141,6 +143,14 @@ public class Incidencia {
 		return "Incidencia [id=" + id + ", name=" + name + ", description=" + description + ", expirationgDate="
 				+ expirationgDate + ", status=" + status + ", operario=" + operario + ", lat=" + lat + ", lng=" + lng
 				+ "]";
+	}
+
+	public boolean getHasNoti() {
+		return hasNoti;
+	}
+
+	public void setHasNoti(boolean hasNoti) {
+		this.hasNoti = hasNoti;
 	}
 
 }

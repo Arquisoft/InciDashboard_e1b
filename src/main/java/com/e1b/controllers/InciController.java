@@ -66,8 +66,8 @@ public class InciController {
 	public String getStatus(@PathVariable Long id, Status status) {
 		Incidencia inci = inciService.findById(id);
 		inci.setStatus(status);
-		kafkaProducer.send("exampleTopic", "Name: "+inci.getName() + " Description: " + inci.getDescription() + " New Status: " + inci.getStatus());
-		
+		kafkaProducer.send("actualizationTopic", "Nombre: "+inci.getName()+" Description: "+inci.getDescription()+" New State: "+inci.getStatus());
+
 		inciService.addIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}

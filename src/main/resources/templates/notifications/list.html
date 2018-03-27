@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+	<nav th:replace="fragments/nav" />
+
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-hover" th:fragment="tableNotifications">
+				<p>
+					Notificaciones actuales:
+				</p>
+				</span>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Descripción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="noti : ${notiList}">
+						<td th:text="${noti.incidence.name}">Nombre</td>
+						<td th:text="${noti.incidence.description}">Descripción</td>						
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		<footer th:replace="fragments/pagination" />
+	</div>
+	<footer th:replace="fragments/footer" />
+</body>
+</html>
