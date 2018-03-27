@@ -80,7 +80,7 @@ public class InciController {
 		data[1]=incidencias.stream().filter(i->i.getStatus().equals(Status.CERRADA)).count();
 		data[2]=incidencias.stream().filter(i->i.getStatus().equals(Status.ANULADA)).count();
 		data[3]=incidencias.stream().filter(i->i.getStatus().equals(Status.EN_PROCESO)).count();
-		model.addAttribute("data",data);
+		model.addAttribute("estadisticas",data);
 		return "/incidencias/statistics";
 	}
 

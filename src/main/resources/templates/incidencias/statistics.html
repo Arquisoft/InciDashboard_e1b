@@ -9,12 +9,13 @@
 	<div id="canvas-holder">
 		<canvas id="myChart"></canvas>
 	</div>
-	<script>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
 		var ctx = document.getElementById('myChart').getContext('2d');
+		var theList = [[${estadisticas}]]
 		var chart = new Chart(ctx, {
 			// The type of chart we want to create
-			type : 'line',
-
+			type : 'line',			
 			// The data for our dataset
 			data : {
 				labels : [ "Abiertas","Cerradas","En_proceso","Anuladas"],
@@ -22,13 +23,14 @@
 					label : "Número de incidencias de cada tipo",
 					backgroundColor : 'rgb(255, 99, 132)',
 					borderColor : 'rgb(255, 99, 132)',
-					data : [3,0,0,0],
+					data : [theList[0],theList[1],theList[2],theList[3]],
 				} ]
 			},
 
 			// Configuration options go here
 			options : {}
 		});
+		/*]]>*/
 	</script>
 	<footer th:replace="fragments/footer" />
 </body>
