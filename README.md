@@ -24,4 +24,10 @@ Si da error borramos la carpeta c temp kafka logs
 
 # Ejecución:	
 
-Abrimos una linea de comandos dentro de la carpeta del proyecto y escribimos mvn spring-boot:run
+- Descargamos la base de datos hsql para ser utilizada de forma local por la aplicación:
+https://unioviedo-my.sharepoint.com/personal/uo251185_uniovi_es/Documents/Forms/All.aspx?slrid=d988579e-b0a2-5000-312a-2971a7ce39b5&RootFolder=%2Fpersonal%2Fuo251185_uniovi_es%2FDocuments%2FASW&FolderCTID=0x01200077E19CF79DD8C34CB7A7D8B5C7A34602
+(Descargar y descomprimir el fichero hsqldb-2.4.0.zip)
+
+- Lanzamos la base de datos hsqldb que acabamos de descargar
+
+- Abrimos una linea de comandos dentro de la carpeta del proyecto y escribimos mvn spring-boot:run
