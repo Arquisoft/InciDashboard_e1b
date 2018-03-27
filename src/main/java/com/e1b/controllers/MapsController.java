@@ -15,7 +15,7 @@ public class MapsController {
 	
 	   @RequestMapping("/map")
 	    public String map(Model model) {
-		    model.addAttribute("incis", incidencesService.getIncidences());
+		    model.addAttribute("incidencias", incidencesService.getIncidences());
 	    	return "map";
 	    }
 
