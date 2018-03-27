@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -68,7 +69,8 @@ public class InciDashboardApplicationTests {
 		@Test
 		public void TestLogin() {
 			driver.get(baseUrl + "/");
-			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+			driver.navigate().to(baseUrl);
+			driver.findElement(By.id("login_btn")).click();
 			PO_LoginView.fillForm(driver, "o1", "123456");
 			PO_View.checkElement(driver, "text", "o1");
 		}

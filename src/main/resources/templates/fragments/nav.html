@@ -11,7 +11,7 @@
 					th:text="#{map.message}"> <span
 						class="glyphicon glyphicon-log-out"></span>
 				</a></li>
-				<li sec:authorize="!isAuthenticated()"><a href="/login"
+				<li sec:authorize="!isAuthenticated()"><a id="login_btn" href="/login"
 					th:text="#{login.message}"> <span
 						class="glyphicon glyphicon-log-in"></span>
 				</a></li>
