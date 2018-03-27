@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -35,7 +36,6 @@ public class InciController {
 	
 	@Autowired
 	KafkaProducer kafkaProducer;
-	
 
 	private final List<SseEmitter> emitters = new ArrayList<>();
 
@@ -67,6 +67,7 @@ public class InciController {
 		Incidencia inci = inciService.findById(id);
 		inci.setStatus(status);
 		kafkaProducer.send("actualizationTopic", "Nombre: "+inci.getName()+" Description: "+inci.getDescription()+" New State: "+inci.getStatus());
+
 		inciService.addIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}
