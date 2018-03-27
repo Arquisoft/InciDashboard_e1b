@@ -4,3 +4,5 @@ jdk:
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 script: ant build
+addons:
+  firefox: "46.0"
