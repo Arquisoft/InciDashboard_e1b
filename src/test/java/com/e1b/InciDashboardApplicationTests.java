@@ -70,7 +70,8 @@ public class InciDashboardApplicationTests {
 		public void TestLogin() {
 			driver.get(baseUrl + "/");
 			driver.navigate().to(baseUrl);
-			driver.findElement(By.id("login_btn")).click();
+//			driver.findElement(By.id("login_btn")).click();
+			driver.navigate().to(baseUrl+"/login");
 			PO_LoginView.fillForm(driver, "o1", "123456");
 			PO_View.checkElement(driver, "text", "o1");
 		}
