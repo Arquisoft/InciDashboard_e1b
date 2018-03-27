@@ -5,17 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.e1b.services.IncidencesService;
+import com.e1b.services.InciService;
 
 @Controller
 public class MapsController {
 	
 	@Autowired
-	private IncidencesService incidencesService;
+	private InciService inciService;
 	
 	   @RequestMapping("/map")
 	    public String map(Model model) {
-		    model.addAttribute("incidencias", incidencesService.getIncidences());
+		    model.addAttribute("incidencias", inciService.findAll());
 	    	return "map";
 	    }
 

@@ -1,6 +1,9 @@
 package com.e1b.services;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +34,12 @@ public class InciService {
 	}
 	public void addIncidencia(Incidencia i) {
 		inciRepository.save(i);
+	}
+
+	public List<Incidencia> findAll() {
+		List<Incidencia> list=new ArrayList<>();
+		inciRepository.findAll().forEach(list::add);
+		return list;
 	}
 	
 }
