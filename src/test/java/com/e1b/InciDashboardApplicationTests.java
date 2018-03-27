@@ -68,12 +68,14 @@ public class InciDashboardApplicationTests {
 		 */
 		@Test
 		public void TestLogin() {
-			driver.get(baseUrl + "/");
-			driver.navigate().to(baseUrl);
-//			driver.findElement(By.id("login_btn")).click();
-			driver.navigate().to(baseUrl+"/login");
-			PO_LoginView.fillForm(driver, "o1", "123456");
-			PO_View.checkElement(driver, "text", "o1");
+			driver.get(baseUrl + "/login");
+			driver.findElement(By.id("username_input")).clear();
+			driver.findElement(By.id("username_input")).sendKeys("o1");
+			driver.findElement(By.id("password_input")).clear();
+			driver.findElement(By.id("password_input")).sendKeys("123456");
+			driver.findElement(By.id("login_btn")).click();
+//			PO_LoginView.fillForm(driver, "o1", "123456");
+//			PO_View.checkElement(driver, "text", "o1");
 		}
 
 		/**

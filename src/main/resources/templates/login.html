@@ -12,22 +12,22 @@
     <div class="form-group">
         <label class="control-label col-sm-2" for="username" th:text="#{email.message}"></label>
         <div class="col-sm-10">
-            <input id="username" type="text" class="form-control" name="username"
-                th:placeholder="#{email.placeholder}" required="true" />
+            <input type="text" class="form-control" name="username"
+                 id="username_input" th:placeholder="#{email.placeholder}" required="true" />
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="password" th:text="#{pass.message}"></label>
         <div class="col-sm-10">
-            <input id="password" type="password" class="form-control" name="password"
-                th:placeholder="#{pass.placeholder}" required="true" /> 
+            <input type="password" class="form-control" name="password"
+                 id="password_input" th:placeholder="#{pass.placeholder}" required="true" /> 
             <span class="text-danger" th:if="${error}" 
             	th:text="#{Error.login.match}" />
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button id="btn_login" type="submit" class="btn btn-primary" th:text="#{login.login}"></button>
+            <button type="submit" class="btn btn-primary"  id="login_btn" th:text="#{login.login}"></button>
         </div>
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
