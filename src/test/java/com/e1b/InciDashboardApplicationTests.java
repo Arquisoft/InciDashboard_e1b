@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.e1b.pageobjects.PO_HomeView;
@@ -44,7 +45,7 @@ public class InciDashboardApplicationTests {
 
 	  @Before
 	  public void setUp() throws Exception {
-	    driver = new HtmlUnitDriver();
+	    driver = new FirefoxDriver();
 	    baseUrl = "http://localhost:8090";
 	    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	  }
@@ -84,7 +85,11 @@ public class InciDashboardApplicationTests {
 		@Test
 		public void TestLogout() {
 			PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
-			PO_LoginView.fillForm(driver, "o1", "123456");
+			driver.findElement(By.id("username_input")).clear();
+			driver.findElement(By.id("username_input")).sendKeys("o1");
+			driver.findElement(By.id("password_input")).clear();
+			driver.findElement(By.id("password_input")).sendKeys("123456");
+			driver.findElement(By.id("login_btn")).click();
 			PO_View.checkElement(driver, "text", "o1");
 			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
 			PO_View.checkElement(driver, "text", "Identificate");
@@ -96,7 +101,11 @@ public class InciDashboardApplicationTests {
 		@Test
 		public void TestListInci() {
 			driver.navigate().to("http://localhost:8090/incidencias/list");
-			PO_LoginView.fillForm(driver, "o1", "123456");
+			driver.findElement(By.id("username_input")).clear();
+			driver.findElement(By.id("username_input")).sendKeys("o1");
+			driver.findElement(By.id("password_input")).clear();
+			driver.findElement(By.id("password_input")).sendKeys("123456");
+			driver.findElement(By.id("login_btn")).click();
 			List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "free", "//tbody/tr",
 					PO_View.getTimeout());
 			assertTrue(elementos.size() == 3);
