@@ -7,7 +7,6 @@ after_success:
 - nohup bash -c "cd kafka && bin/kafka-server-stop.sh config/server.properties &"
 - sleep 10
 - nohup bash -c "cd kafka && bin/zookeeper-server-stop.sh config/zookeeper.properties &"
-script: ant build
 addons:
   firefox: "46.0"
 before_install:
