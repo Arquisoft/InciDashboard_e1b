@@ -1,5 +1,6 @@
 package com.e1b;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -45,7 +46,7 @@ public class InciDashboardApplicationTests {
 
 	  @Before
 	  public void setUp() throws Exception {
-	    driver = new FirefoxDriver();
+	    driver = new HtmlUnitDriver();
 	    baseUrl = "http://localhost:8090";
 	    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	  }
@@ -112,4 +113,16 @@ public class InciDashboardApplicationTests {
 			PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
 			PO_View.checkElement(driver, "text", "Identificate");
 		}
+		
+		@Test
+		  public void testUnioviTest3() throws Exception {
+		    driver.get("http://www.uniovi.es/");
+		    driver.findElement(By.id("cabecera_keywords")).clear();
+		    driver.findElement(By.id("cabecera_keywords")).sendKeys("rector");
+		    driver.findElement(By.id("cabecera_search")).click();
+		    try {
+		      assertEquals("Rector", driver.findElement(By.cssSelector("li.alt > div.resultado_contenido > span.titulo > span.highlight")).getText());
+		    } catch (Error e) {
+		    }
+		  }
 }
