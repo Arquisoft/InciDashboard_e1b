@@ -37,7 +37,7 @@ public class MessageListener {
 	@Autowired
 	private NotificationService notiService;
 
-	@KafkaListener(topics = "exampleTopic")
+	@KafkaListener(topics = "incidences")
 	public void listen(String data) {
 		logger.info("New incidencia received: \"" + data + "\"");
 		SseEmitter latestEm = inciController.getLatestEmitter();
@@ -46,7 +46,7 @@ public class MessageListener {
 			Incidencia inci;
 			
 			try {
-				inci = InciCreator.parseIncidence(data);
+				inci = InciCreator.parseIncidence(data);			
 				inciService.addIncidencia(inci);
 				if(inci.getHasNoti())
 				{

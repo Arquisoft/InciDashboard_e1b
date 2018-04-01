@@ -11,8 +11,8 @@
 					th:text="#{map.message}"> <span
 						class="glyphicon glyphicon-log-out"></span>
 				</a></li>
-				<li sec:authorize="!isAuthenticated()"><a id="login_btn" href="/login"
-					th:text="#{login.message}"> <span
+				<li sec:authorize="!isAuthenticated()"><a id="login_btn"
+					href="/login" th:text="#{login.message}"> <span
 						class="glyphicon glyphicon-log-in"></span>
 				</a></li>
 				<li><a href="/incidencias/list"
@@ -21,6 +21,8 @@
 					sec:authorize="isAuthenticated()">Mostrar notificaciones</a></li>
 				<li><a href="/incidencias/statistics"
 					sec:authorize="isAuthenticated()">Estadísticas</a></li>
+				<li><a href="/incidencias/realTime"
+					sec:authorize="isAuthenticated()">Incidencias (Tiempo real)</a></li>
 				<li sec:authorize="isAuthenticated()"><a href="/logout"
 					th:text="#{logout.message}"> <span
 						class="glyphicon glyphicon-log-out"></span>
