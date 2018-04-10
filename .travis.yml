@@ -3,7 +3,7 @@ sudo: required
 jdk:
 - oraclejdk8
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -t 274d92f7-2a2c-41c1-af37-9a04188b3170
 - nohup bash -c "cd kafka && bin/kafka-server-stop.sh config/server.properties &"
 - sleep 10
 - nohup bash -c "cd kafka && bin/zookeeper-server-stop.sh config/zookeeper.properties &"
@@ -20,3 +20,6 @@ before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
+script: 
+- nohup bash -c "cd data/hsqldb/bin && ./runServer.sh &"
+- "mvn test"
