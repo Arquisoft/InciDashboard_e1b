@@ -6,11 +6,6 @@ env:
   global:
   - ZOOKEEPER_PEERS=localhost:2181
   - KAFKA_PEERS=localhost:9092
-after_success:
-- bash <(curl -s https://codecov.io/bash)
-- nohup bash -c "cd kafka && bin/kafka-server-stop.sh config/server.properties &"
-- sleep 10
-- nohup bash -c "cd kafka && bin/zookeeper-server-stop.sh config/zookeeper.properties &"
 addons:
   firefox: "46.0"
 before_install:
@@ -18,6 +13,12 @@ before_install:
 - mkdir -p kafka && tar xzf kafka.tgz -C kafka --strip-components 1
 - nohup bash -c "cd kafka && bin/zookeeper-server-start.sh config/zookeeper.properties &"
 - nohup bash -c "cd kafka && bin/kafka-server-start.sh config/server.properties &"
+- sleep 5
+#- kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic standard --zookeeper localhost:2181
+#- kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic sensor --zookeeper localhost:2181
+#- kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic geolocated --zookeeper localhost:2181
+#- kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic withOperator --zookeeper localhost:2181
+- kafka/bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic incidences --zookeeper localhost:2181
 install: true
 before_script:
 - "export DISPLAY=:99.0"
