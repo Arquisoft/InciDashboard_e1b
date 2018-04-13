@@ -114,12 +114,12 @@ public class InciDashboardApplicationTests {
 			PO_View.checkElement(driver, "text", "Identificate");
 		}
 		
-		@Test
-		  public void testUnioviTest3() throws Exception {
-		    driver.get("http://www.uniovi.es/");
-		    driver.findElement(By.id("cabecera_keywords")).clear();
-		    driver.findElement(By.id("cabecera_keywords")).sendKeys("rector");
-		    driver.findElement(By.id("cabecera_search")).click();
-		    assertEquals("Rector", driver.findElement(By.cssSelector("li.alt > div.resultado_contenido > span.titulo > span.highlight")).getText());
-		  }
+//		@Test
+//		  public void testUnioviTest3() throws Exception {
+//		    driver.get("http://www.uniovi.es/");
+//		    driver.findElement(By.id("cabecera_keywords")).clear();
+//		    driver.findElement(By.id("cabecera_keywords")).sendKeys("rector");
+//		    driver.findElement(By.id("cabecera_search")).click();
+//		    assertEquals("Rector", driver.findElement(By.cssSelector("li.alt > div.resultado_contenido > span.titulo > span.highlight")).getText());
+//		  }
 }
