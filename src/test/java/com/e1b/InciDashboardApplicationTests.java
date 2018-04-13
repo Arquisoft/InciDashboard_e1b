@@ -47,7 +47,7 @@ public class InciDashboardApplicationTests {
 	  @Before
 	  public void setUp() throws Exception {
 	    driver = new HtmlUnitDriver();
-	    baseUrl = "http://localhost:8090";
+	    baseUrl = "http://localhost:8092";
 	    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	  }
 
