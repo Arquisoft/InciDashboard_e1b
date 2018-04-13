@@ -24,6 +24,7 @@ after_success:
 - nohup bash -c "cd kafka && bin/zookeeper-server-stop.sh config/zookeeper.properties &"
 addons:
   firefox: "46.0"
+  hsqldb: "2.4.0"
 before_install:
 - mysql -e 'CREATE DATABASE app;'
 - wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz -O kafka.tgz
