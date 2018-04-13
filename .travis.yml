@@ -1,5 +1,20 @@
 language: java
 sudo: required
+
+# Database settings.
+database:
+ # the name of your JDBC driver
+  driverClass: org.hsqldb.jdbcDriver
+
+  # the username
+  user: SA
+
+  # the password
+  password: 
+
+  # the JDBC URL
+  url: jdbc:hsqldb:hsql://localhost:9001
+  
 jdk:
 - oraclejdk8
 after_success:
