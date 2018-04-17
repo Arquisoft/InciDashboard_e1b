@@ -46,7 +46,7 @@ public class InciDashboardApplicationTests {
 
 	  @Before
 	  public void setUp() throws Exception {
-	    driver = new HtmlUnitDriver();
+	    driver = new FirefoxDriver();
 	    baseUrl = "http://localhost:8092";
 	    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	  }
