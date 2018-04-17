@@ -35,7 +35,7 @@ function initialize() {
    mapa=new google.maps.Map(document.getElementById("googleMap"),mapProp);
    var theList = [[${incidencias}]]
    for (i = 0; i < theList.length; i++) {
-   	var l = new google.maps.LatLng(theList[i].lat,  theList[i].lng);
+   	var l = new google.maps.LatLng(theList[i][0],  theList[i][1]);
    	addMarcador(l,theList[i].name)
    }
 }

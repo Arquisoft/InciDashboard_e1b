@@ -12,20 +12,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.e1b.entities.Notification;
-import com.e1b.services.NotificationService;
+import com.e1b.entities.Incidence;
+import com.e1b.services.InciService;
 
 @Controller
 public class NotificationController 
 {
 
 	@Autowired
-	NotificationService notiServi;
+	InciService inciService;
 
 	@RequestMapping(value = "/notifications/list", method = RequestMethod.GET)
 	public String list(Model model, Principal principal, Pageable pageable) {
-		Page<Notification> notis = new PageImpl<Notification>(new LinkedList<Notification>());
-		notis = notiServi.findAll(pageable);
+		Page<Incidence> notis = new PageImpl<Incidence>(new LinkedList<Incidence>());
+		notis = inciService.findByNotification("si",pageable);
 		model.addAttribute("notiList", notis.getContent());
 		model.addAttribute("page", notis);
 		return "/notifications/list";

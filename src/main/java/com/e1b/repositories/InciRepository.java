@@ -1,21 +1,22 @@
 package com.e1b.repositories;
 
+import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.e1b.entities.Incidencia;
-import com.e1b.entities.Operario;
+import com.e1b.entities.Incidence;
 
-public interface InciRepository extends CrudRepository<Incidencia, Long> {
+public interface InciRepository extends MongoRepository<Incidence, ObjectId> {
 
-	
-	// set estado = parametro @Transactional @Modifying
-	
-	Page<Incidencia> findAll(Pageable pageable);
-	
-	Page<Incidencia> findInciByOperario(Operario op, Pageable pageable);
-	
-	
+	Page<Incidence> findAll(Pageable pageable);
+
+	Page<Incidence> findInciByOperario(String username, Pageable pageable);
+
+	List<Incidence> findInciByOperario(String username);
+
+	Page<Incidence> findByNotification(String notification, Pageable pageable);
+
 }

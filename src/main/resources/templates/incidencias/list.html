@@ -3,15 +3,11 @@
 <head th:replace="fragments/head" />
 <body>
 	<nav th:replace="fragments/nav" />
-
+	
 	<div class="container">
 		<div class="table-responsive">
 			<table class="table table-hover" th:fragment="tableIncidencias">
-				<p>
-					Incidencias asignadas al operario:
-					<span sec:authentication="principal.username" th:inline="text">
-					</span>
-				</p>
+			<p>Aquí se muestran todas las incidencias registradas en el sistema</p>
 				</span>
 				<thead>
 					<tr>
@@ -26,9 +22,10 @@
 					<tr th:each="inci : ${inciList}">
 						<td th:text="${inci.name}">Nombre</td>
 						<td th:text="${inci.description}">Descripción</td>
-						<td th:text="${inci.expirationgDate}">Fecha de Caducidad</td>
-						<td th:text="${inci.status}">Estado</td>
-						<td><a th:href="${'/incidencias/estado/' + inci.id}"
+						
+						<td th:text="${inci.expireAt}">Fecha de Caducidad</td>
+						<td th:text="${inci.state}">Estado</td>
+						<td><a th:href="${'/incidencias/estado/' + inci._id.toString()}"
 							th:text="'Cambiar estado'"></a></td>
 						</td>						
 					</tr>
