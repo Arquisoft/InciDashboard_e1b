@@ -87,10 +87,9 @@ public class InciController {
 		return (emitters.isEmpty()) ? null : emitters.get(emitters.size() - 1);
 	}
 
-	@GetMapping("/kafka-messages")
-	public SseEmitter getKafkaMessages() {
+	@GetMapping("/incidencias/kafka-messages")
+	public SseEmitter getKafkaMessages(Model model) {
 		SseEmitter emitter = new SseEmitter();
-		emitters.add(emitter);
 		emitter.onCompletion(new Runnable() {
 			@Override
 			public void run() {
@@ -103,6 +102,7 @@ public class InciController {
 				emitters.remove(emitter);
 			}
 		});
+		emitters.add(emitter);
 		return emitter;
 	}
 

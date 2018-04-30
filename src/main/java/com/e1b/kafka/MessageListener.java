@@ -5,12 +5,14 @@ import java.io.IOException;
 import javax.annotation.ManagedBean;
 
 import org.apache.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.e1b.controllers.InciController;
 import com.e1b.entities.Incidence;
+import com.e1b.entities.Operario;
 import com.e1b.services.InciService;
 import com.google.gson.Gson;
 
@@ -36,6 +38,8 @@ public class MessageListener {
 		try {
 			Incidence inci;
 			inci = new Gson().fromJson(data, Incidence.class);
+			inci.set_id(new ObjectId());
+			inci.setOperario(new Operario());
 			System.out.println(inci);
 			try {
 				inciService.addIncidencia(inci);
