@@ -31,7 +31,7 @@ public class MainControllerTest {
 
   @Test
   public void testLanding() throws Exception {
-    mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Home")));
+    mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Panel de Control InciDashBoard")));
   }
 
 }
