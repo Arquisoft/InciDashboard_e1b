@@ -53,7 +53,7 @@ public class InciController {
 		lista.add("Abierta");
 		lista.add("Cerrada");
 		lista.add("Anulada");
-		lista.add("En_proceso");
+		lista.add("En proceso");
 		model.addAttribute("statesList", lista);
 		return "incidencias/estado";
 	}
@@ -74,7 +74,7 @@ public class InciController {
 		data[0]=incidencias.stream().filter(i->i.getState().equals("Abierta")).count();
 		data[1]=incidencias.stream().filter(i->i.getState().equals("Cerrada")).count();
 		data[2]=incidencias.stream().filter(i->i.getState().equals("Anulada")).count();
-		data[3]=incidencias.stream().filter(i->i.getState().equals("En_proceso")).count();
+		data[3]=incidencias.stream().filter(i->i.getState().equals("En proceso")).count();
 		model.addAttribute("estadisticas",data);
 		return "/incidencias/statistics";
 	}
