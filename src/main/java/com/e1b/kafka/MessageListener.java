@@ -36,6 +36,7 @@ public class MessageListener {
 		try {
 			Incidence inci;
 			inci = new Gson().fromJson(data, Incidence.class);
+			System.out.println(inci);
 			try {
 				inciService.addIncidencia(inci);
 			} catch (Exception e) {
@@ -43,7 +44,7 @@ public class MessageListener {
 				e.printStackTrace();
 			}
 
-			latestEm.send(data);
+			latestEm.send(inci);
 		} catch (IOException e) {
 			latestEm.completeWithError(e);
 		}

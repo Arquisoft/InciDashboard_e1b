@@ -139,4 +139,13 @@ public class Incidence {
 		this.expireAt = expireAt;
 	}
 
+	@Override
+	public String toString() {
+		return "Incidence [_id=" + _id + ", operario=" + operario + ", name=" + name + ", description=" + description
+				+ ", location=" + location + ", tags=" + tags + ", additionalInformation=" + additionalInformation
+				+ ", properties=" + properties + ", state=" + state + ", notification=" + notification + ", expireAt="
+				+ expireAt + ", assignedTo=" + assignedTo + "]";
+	}
+	
+
 }

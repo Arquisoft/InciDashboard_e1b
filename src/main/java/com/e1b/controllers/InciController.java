@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.e1b.entities.Incidence;
-import com.e1b.entities.Operario;
 import com.e1b.kafka.KafkaProducer;
 import com.e1b.services.InciService;
 import com.e1b.services.OperariosService;
@@ -51,10 +50,10 @@ public class InciController {
 	public String getStatus(Model model, @PathVariable ObjectId id) {
 		model.addAttribute("id", id);
 		List<String> lista = new ArrayList<String>();
-		lista.add("ABIERTA");
-		lista.add("CERRADA");
-		lista.add("ANULADA");
-		lista.add("EN_PROCESO");
+		lista.add("Abierta");
+		lista.add("Cerrada");
+		lista.add("Anulada");
+		lista.add("En_proceso");
 		model.addAttribute("statesList", lista);
 		return "incidencias/estado";
 	}
@@ -73,9 +72,9 @@ public class InciController {
 		long[] data= new long[4] ;
 		List<Incidence> incidencias = inciService.findAll();
 		data[0]=incidencias.stream().filter(i->i.getState().equals("Abierta")).count();
-		data[1]=incidencias.stream().filter(i->i.getState().equals("CERRADA")).count();
-		data[2]=incidencias.stream().filter(i->i.getState().equals("ANULADA")).count();
-		data[3]=incidencias.stream().filter(i->i.getState().equals("EN_PROCESO")).count();
+		data[1]=incidencias.stream().filter(i->i.getState().equals("Cerrada")).count();
+		data[2]=incidencias.stream().filter(i->i.getState().equals("Anulada")).count();
+		data[3]=incidencias.stream().filter(i->i.getState().equals("En_proceso")).count();
 		model.addAttribute("estadisticas",data);
 		return "/incidencias/statistics";
 	}
