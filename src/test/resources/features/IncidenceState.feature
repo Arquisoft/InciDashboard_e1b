@@ -4,7 +4,7 @@ Scenario: States
     Given a operator with username "O1" 
     When he changes the state of a incidence <incidence>  
     Then he changes the state <state>
-    Comment:
+    Given a list of Incidences:
       | incidence	| state  					 	 |
       | i			| EN_PROCESO       			 	 |
       | i1			| CERRADA    				 	 |
