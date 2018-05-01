@@ -3,16 +3,29 @@
 <head th:replace="fragments/head" />
 <body>
 	<nav th:replace="fragments/nav" />
-
 	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-hover" id="kafka-messages">
+				<p>Aquí se muestran las incidencias que entran por kafka</p>
+				<thead>
+					<tr>
+						<th>Nombre</th> 
+						<th>Descripción</th>
+						<th>Fecha de Caducidad</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
 		<script th:inline="javascript">
+			/*<![CDATA[*/
 			$(document).ready(
 					function() {
-						console.log("patata");
-						var sse = $.SSE('/kafka-messages', {
+						var sse = $.SSE('/incidencias/kafka-messages', {
 							onMessage : function(e) {
 								$('#kafka-messages tr:last').after(
-										'<tr><td>' + e.data + '</td></tr>');
+										'<tr><td>' + e.data.name + '</td><td>' + e.data.description + '</td><td>' + e.data.expiration + '</td> <td>' + e.data.state + '</td></tr>' );
+							}
 							},
 							onError : function(e) {
 								sse.stop();
@@ -25,8 +38,8 @@
 						sse.start();
 
 					});
+			/*]]>*/
 		</script>
-		<footer th:replace="fragments/pagination" />
 	</div>
 	<footer th:replace="fragments/footer" />
 </body>
