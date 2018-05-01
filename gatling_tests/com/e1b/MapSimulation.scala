@@ -5,7 +5,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
 
-class RecordedSimulation extends Simulation {
+class MapSimulation extends Simulation {
 
 	val httpProtocol = http
 		.baseURL("http://localhost:8092")
@@ -17,11 +17,12 @@ class RecordedSimulation extends Simulation {
 
 	val headers_1 = Map("Accept" -> "text/css,*/*;q=0.1")
 
-	val headers_9 = Map("Content-Type" -> "application/ocsp-request")
+	val headers_8 = Map("Content-Type" -> "application/ocsp-request")
 
     val uri1 = "http://ocsp.pki.goog/GTSGIAG3"
+    val uri3 = "http://clients1.google.com/ocsp"
 
-	val scn = scenario("RecordedSimulation")
+	val scn = scenario("MapSimulation")
 		.exec(http("request_0")
 			.get("/login")
 			.resources(http("request_1")
@@ -40,25 +41,33 @@ class RecordedSimulation extends Simulation {
 			.headers(headers_1),
             http("request_5")
 			.get("/favicon.ico")))
-		.pause(3)
+		.pause(2)
 		.exec(http("request_6")
 			.get("/map")
 			.resources(http("request_7")
 			.get("/css/custom.css")
 			.headers(headers_1),
             http("request_8")
-			.get("/favicon.ico"),
-            http("request_9")
 			.post(uri1 + "")
-			.headers(headers_9)
-			.body(RawFileBody("RecordedSimulation_0009_request.txt"))))
+			.headers(headers_8)
+			.body(RawFileBody("MapSimulation_0008_request.txt")),
+            http("request_9")
+			.get("/favicon.ico"),
+            http("request_10")
+			.post(uri3 + "")
+			.headers(headers_8)
+			.body(RawFileBody("MapSimulation_0010_request.txt"))))
 		.pause(2)
-		.exec(http("request_10")
-			.get("/logout")
-			.resources(http("request_11")
+		.exec(http("request_11")
+			.post(uri3 + "")
+			.headers(headers_8)
+			.body(RawFileBody("MapSimulation_0011_request.txt"))
+			.resources(http("request_12")
+			.get("/logout"),
+            http("request_13")
 			.get("/css/custom.css")
 			.headers(headers_1),
-            http("request_12")
+            http("request_14")
 			.get("/favicon.ico")))
 
 	setUp(scn.inject(rampUsers(10) over(5 seconds))).protocols(httpProtocol)
