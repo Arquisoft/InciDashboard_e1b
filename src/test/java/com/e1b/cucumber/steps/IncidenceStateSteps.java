@@ -39,8 +39,8 @@ import com.e1b.services.OperariosService;
 			operario = operatorsService.findByUsername(username);
 		}
 
-		@When("^he changes the state of an incidence \"([^\"]*)\"$")
-		public void he_changes_the_state_of_an_incidence(String name) throws Throwable {
+		@When("^he watch the state of an incidence \"([^\"]*)\"$")
+		public void he_watch_the_state_of_an_incidence(String name) throws Throwable {
 			for (Incidence i : operario.getIncidencias()) {
 				if (i.getName().equals(name)) {
 					incidence = i;
@@ -49,16 +49,20 @@ import com.e1b.services.OperariosService;
 			}
 		}
 
-		@Then("^he changes the state \"([^\"]*)\"$")
-		public void the_system_will_notice_with_message(String estado) throws Throwable {
-			String state = incidence.getState();
-			if(estado.toLowerCase().equals("en_proceso"))
-				incidence.setState("EN_PROCESO");
-			else if(estado.toLowerCase().equals("cerrada"))
-				incidence.setState("CERRADA");	
-			else if(estado.toLowerCase().equals("anulada"))
-				incidence.setState("ANULADA");
-			assertTrue(!state.equals(incidence.getState()));
+		@Then("^it is \"([^\"]*)\"$")
+		public void it_is(String estado) throws Throwable {
+			if(estado.toLowerCase().equals("en_proceso")){
+				assertTrue(incidence.getName().equals("i"));
+				assertTrue(incidence.getState().toLowerCase().equals("en_proceso"));
+			}
+			else if(estado.toLowerCase().equals("cerrada")){
+				assertTrue(incidence.getName().equals("i"));
+				assertTrue(incidence.getState().toLowerCase().equals("cerrada"));
+			}
+			else if(estado.toLowerCase().equals("anulada")){
+				assertTrue(incidence.getName().equals("i"));
+				assertTrue(incidence.getState().toLowerCase().equals("anulada"));
+			}
 		}
 
 	}
