@@ -18,9 +18,9 @@ public class Incidence {
 	private List<String> tags;
 	private String additionalInformation;
 	private Map<String, String> properties;
-	private String state = "OPEN";
+	private String state = "Abierta";
 	private String notification;
-	private String expireAt;
+	private String expiration;
 	private String assignedTo;
 
 	public Incidence() {
@@ -40,7 +40,7 @@ public class Incidence {
 		this.properties = properties;
 		this.state = state;
 		this.notification = notification;
-		this.expireAt = expireAt;
+		this.expiration = expireAt;
 		this.assignedTo = assignedTo;
 	}
 
@@ -130,22 +130,21 @@ public class Incidence {
 	public void set_id(ObjectId _id) {
 		this._id = _id;
 	}
-
-	public String getExpireAt() {
-		return expireAt;
+	
+	public String getExpiration() {
+		return expiration;
 	}
 
-	public void setExpireAt(String expireAt) {
-		this.expireAt = expireAt;
+	public void setExpiration(String expiration) {
+		this.expiration = expiration;
 	}
 
 	@Override
 	public String toString() {
-		return "Incidence [_id=" + _id + ", operario=" + operario + ", name=" + name + ", description=" + description
-				+ ", location=" + location + ", tags=" + tags + ", additionalInformation=" + additionalInformation
-				+ ", properties=" + properties + ", state=" + state + ", notification=" + notification + ", expireAt="
-				+ expireAt + ", assignedTo=" + assignedTo + "]";
+		return "Incidence [name=" + name + ", description=" + description + ", state=" + state + ", expiration="
+				+ expiration + "]";
 	}
+
 	
 
 }
