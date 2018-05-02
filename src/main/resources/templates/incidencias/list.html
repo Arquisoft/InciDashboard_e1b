@@ -23,7 +23,7 @@
 						<td th:text="${inci.name}">Nombre</td>
 						<td th:text="${inci.description}">Descripción</td>
 						
-						<td th:text="${inci.expireAt}">Fecha de Caducidad</td>
+						<td th:text="${inci.expiration}">Fecha de Caducidad</td>
 						<td th:text="${inci.state}">Estado</td>
 						<td><a th:href="${'/incidencias/estado/' + inci._id.toString()}"
 							th:text="'Cambiar estado'"></a></td>

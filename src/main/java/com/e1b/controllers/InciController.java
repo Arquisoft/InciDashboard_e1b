@@ -88,7 +88,7 @@ public class InciController {
 	}
 
 	@GetMapping("/incidencias/kafka-messages")
-	public SseEmitter getKafkaMessages(Model model) {
+	public SseEmitter getKafkaMessages() {
 		SseEmitter emitter = new SseEmitter();
 		emitter.onCompletion(new Runnable() {
 			@Override

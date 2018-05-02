@@ -12,8 +12,8 @@ public class Operario {
 
 	private String username;
 	private String password;
-
-	private Set<Incidence> incidencias;
+	
+	Set<Incidence> incidencias;
 
 	public Operario() {
 	}
@@ -39,6 +39,7 @@ public class Operario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
 	public Set<Incidence> getIncidencias() {
 		return incidencias;
@@ -50,9 +51,9 @@ public class Operario {
 
 	@Override
 	public String toString() {
-		return "Operario [_id=" + _id + ", username=" + username + ", password=" + password + ", incidencias="
-				+ incidencias + "]";
+		return "Operario [_id=" + _id + ", username=" + username + ", password=" + password + "]";
 	}
+
 	
 
 }

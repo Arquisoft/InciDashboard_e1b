@@ -5,11 +5,11 @@
 	<nav th:replace="fragments/nav" />
 	<div class="container">
 		<div class="table-responsive">
-			<table class="table table-hover" id="kafka-messages">
+			<table class="table table-hover" id ="tablaIncidencias">
 				<p>Aquí se muestran las incidencias que entran por kafka</p>
 				<thead>
-					<tr>
-						<th>Nombre</th> 
+					<tr id="kafka-messages">
+						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Fecha de Caducidad</th>
 						<th>Estado</th>
@@ -24,7 +24,7 @@
 						var sse = $.SSE('/incidencias/kafka-messages', {
 							onMessage : function(e) {
 								$('#kafka-messages tr:last').after(
-										'<tr><td>' + e.data.name + '</td><td>' + e.data.description + '</td><td>' + e.data.expiration + '</td> <td>' + e.data.state + '</td></tr>' );
+										'<tr><td>' + data + '</td><td>');
 							}
 							},
 							onError : function(e) {
@@ -40,6 +40,8 @@
 					});
 			/*]]>*/
 		</script>
+
+
 	</div>
 	<footer th:replace="fragments/footer" />
 </body>

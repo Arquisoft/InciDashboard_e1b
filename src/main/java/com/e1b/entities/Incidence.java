@@ -130,21 +130,19 @@ public class Incidence {
 	public void set_id(ObjectId _id) {
 		this._id = _id;
 	}
-
-	public String getExpireAt() {
+	
+	public String getExpiration() {
 		return expiration;
 	}
 
-	public void setExpireAt(String expireAt) {
-		this.expiration = expireAt;
+	public void setExpiration(String expiration) {
+		this.expiration = expiration;
 	}
 
 	@Override
 	public String toString() {
-		return "Incidence [_id=" + _id + ", operario=" + operario + ", name=" + name + ", description=" + description
-				+ ", location=" + location + ", tags=" + tags + ", additionalInformation=" + additionalInformation
-				+ ", properties=" + properties + ", state=" + state + ", notification=" + notification + ", expiration="
-				+ expiration + ", assignedTo=" + assignedTo + "]";
+		return "Incidence [name=" + name + ", description=" + description + ", state=" + state + ", expiration="
+				+ expiration + "]";
 	}
 
 	
