@@ -1,5 +1,6 @@
 package com.e1b.services;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class OperariosService {
 		return operariosRepository.findByUsername(username);
 	}
 	
-    public Operario getUser(Long id) {
+    public Operario getUser(ObjectId id) {
     	return operariosRepository.findOne(id);
     }
 
