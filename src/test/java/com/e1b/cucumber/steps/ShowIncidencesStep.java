@@ -23,7 +23,7 @@ public class ShowIncidencesStep {
 	@Autowired
 	OperariosService operatorsService;
 	@Autowired
-	InciService inciService;
+	InciService  inciService;
 	
 	Incidence  incidencia;
 	
