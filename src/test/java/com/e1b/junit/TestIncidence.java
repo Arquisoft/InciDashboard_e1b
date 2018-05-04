@@ -36,7 +36,6 @@ public class TestIncidence {
 		
 	}
 
-	@Test
 	public void testIncidence() {
 		incidencia = new Incidence(operario1, "o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
 				tags, "información adicional", propiedades, "Abierta",
@@ -54,7 +53,6 @@ public class TestIncidence {
 
 	}
 	
-	@Test
 	public void testGetId() {
 		incidencia = new Incidence(operario1, "o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
 				tags, "información adicional", propiedades, "Abierta",
