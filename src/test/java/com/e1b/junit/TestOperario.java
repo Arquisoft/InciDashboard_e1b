@@ -18,7 +18,6 @@ public class TestOperario {
 		operario99=new Operario();
 	}
 	
-	@Test
 	public void testOperario() {
 		//Comprobamos que el usuario se crea correctamente
 		Operario operario3= new Operario("o3", "66666");
@@ -26,7 +25,6 @@ public class TestOperario {
 		assertEquals(operario3.getPassword(), "66666");
 	}
 
-	@Test
 	public void testGetUsername() {
 		//Pruebas positivas
 		assertEquals(operario1.getUsername(), "o1");
@@ -35,7 +33,6 @@ public class TestOperario {
 		assertEquals(operario99.getUsername(), null);
 	}
 
-	@Test
 	public void testSetUsername() {
 		operario1.setUsername("o11");
 		assertEquals(operario1.getUsername(), "o11");
@@ -43,7 +40,6 @@ public class TestOperario {
 		assertEquals(operario2.getUsername(), "o22");
 	}
 
-	@Test
 	public void testGetPassword() {
 		//Pruebas positivas
 		assertEquals(operario1.getPassword(), "123456");
@@ -52,7 +48,6 @@ public class TestOperario {
 		assertEquals(operario99.getPassword(), null);
 	}
 
-	@Test
 	public void testSetPassword() {
 		operario1.setPassword("654321");
 		assertEquals(operario1.getPassword(), "654321");
