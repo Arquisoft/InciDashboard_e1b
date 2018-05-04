@@ -9,7 +9,7 @@ import com.e1b.entities.Operario;
 
 public class TestOperario {
 
-	Operario operario1, operario2, operario99;
+	private Operario operario1, operario2, operario99;
 	
 	@Before
 	public void initialize(){
