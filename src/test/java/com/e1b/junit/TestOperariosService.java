@@ -12,8 +12,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.e1b.InciDashboardApplication;
 import com.e1b.entities.Operario;
-import com.e1b.repositories.OperariosRepository;
-import com.e1b.services.InciService;
 import com.e1b.services.OperariosService;
 
 @ContextConfiguration(classes=InciDashboardApplication.class, loader=SpringApplicationContextLoader.class)
@@ -23,7 +21,7 @@ public class TestOperariosService {
 	@Autowired
 	private OperariosService operariosService;
 	
-	Operario operario1, operario2, operario3, operario4;
+	private Operario operario1, operario2, operario3, operario4;
 	
 	@Before
 	public void initialize(){
