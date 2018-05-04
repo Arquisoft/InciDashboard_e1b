@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,13 +16,15 @@ import com.e1b.entities.Operario;
 
 public class TestIncidence {
 	
-	Map<String, String> propiedades;
-	List<String> tags;
-	Operario operario1;
-	Incidence incidencia;
+	private Map<String, String> propiedades;
+	private List<String> tags;
+	private Operario operario1;
+	private Incidence incidencia;
+	private ObjectId id;
 	
 	@Before
 	public void initialize(){
+		id= new ObjectId();
 		operario1= new Operario("o11", "1234");
 		tags= new ArrayList<String>();
 		tags.add("etiqueta de prueba");
@@ -30,139 +33,36 @@ public class TestIncidence {
 		propiedades.put("1", "propiedad1");
 		propiedades.put("2", "propiedad2");
 		propiedades.put("3", "propiedad3");
+		
 	}
 
 	@Test
 	public void testIncidence() {
-//		incidencia = new Incidence("o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
-//				tags, "información adicional", propiedades, "Abierta",
-//				"si", "2018/11/02", "o1");
-//		assertEquals(incidencia.getName(), "inci1");
-//		assertEquals(incidencia.getDescription(), "incidencia de ejemplo para realizar pruebas");
-//		assertEquals(incidencia.getLocation(), "47");
-//		assertEquals(incidencia.getTags(), tags);
-//		assertEquals(incidencia.getAdditionalInformation(), "información adicional");
-//		assertEquals(incidencia.getProperties(), propiedades);
-//		assertEquals(incidencia.getState(), "Abierta");
-//		assertEquals(incidencia.getNotification(), "si");
-//		assertEquals(incidencia.getExpiration(), "2018/11/02");
-//		assertEquals(incidencia.getAssignedTo(), "o1");
+		incidencia = new Incidence(operario1, "o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
+				tags, "información adicional", propiedades, "Abierta",
+				"si", "2018/11/02", "o1");
+		assertEquals(incidencia.getName(), "inci1");
+		assertEquals(incidencia.getDescription(), "incidencia de ejemplo para realizar pruebas");
+		assertEquals(incidencia.getLocation(), "47");
+		assertEquals(incidencia.getTags(), tags);
+		assertEquals(incidencia.getAdditionalInformation(), "información adicional");
+		assertEquals(incidencia.getProperties(), propiedades);
+		assertEquals(incidencia.getState(), "Abierta");
+		assertEquals(incidencia.getNotification(), "si");
+		assertEquals(incidencia.getExpiration(), "2018/11/02");
+		assertEquals(incidencia.getAssignedTo(), "o1");
 
 	}
 	
 	@Test
-	public void testGetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetDescription() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetDescription() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetLocation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetLocation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetAdditionalInformation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetAdditionalInformation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetState() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetState() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetAssignedTo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTags() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetTags() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetProperties() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetProperties() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNotification() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetNotification() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetOperario() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetOperario() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGet_id() {
-		fail("Not yet implemented");
+		incidencia = new Incidence(operario1, "o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
+				tags, "información adicional", propiedades, "Abierta",
+				"si", "2018/11/02", "o1");
+		incidencia.set_id(id);
+		assertEquals(incidencia.get_id(), id);
 	}
 
-	@Test
-	public void testSet_id() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetExpiration() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetExpiration() {
-		fail("Not yet implemented");
-	}
 
 }
