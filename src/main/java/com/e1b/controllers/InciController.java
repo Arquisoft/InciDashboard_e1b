@@ -43,7 +43,7 @@ public class InciController {
 		incidencias = inciService.findAll(pageable);
 		model.addAttribute("inciList", incidencias.getContent());
 		model.addAttribute("page", incidencias);
-		return "/incidencias/list";
+		return "/list";
 	}
 
 	@RequestMapping(value = "/incidencias/estado/{id}")
@@ -55,7 +55,7 @@ public class InciController {
 		lista.add("Anulada");
 		lista.add("En proceso");
 		model.addAttribute("statesList", lista);
-		return "incidencias/estado";
+		return "/estado";
 	}
 
 	@RequestMapping(value = "/incidencias/estado/{id}", method = RequestMethod.POST)
@@ -76,7 +76,7 @@ public class InciController {
 		data[2]=incidencias.stream().filter(i->i.getState().equals("Anulada")).count();
 		data[3]=incidencias.stream().filter(i->i.getState().equals("En proceso")).count();
 		model.addAttribute("estadisticas",data);
-		return "/incidencias/statistics";
+		return "/statistics";
 	}
 
 	public List<SseEmitter> getEmitters() {
