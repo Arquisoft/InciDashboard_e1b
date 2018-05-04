@@ -62,7 +62,7 @@ public class InciController {
 	public String setStatus(@PathVariable ObjectId id, String status) {
 		Incidence inci = inciService.findById(id);
 		inci.setState(status);
-		kafkaProducer.send("incidencesModify",inci.toString());
+		kafkaProducer.send("hj0am83d-incidencesModify",inci.toString());
 		inciService.addIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}
