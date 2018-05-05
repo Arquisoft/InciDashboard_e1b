@@ -47,5 +47,5 @@ class ShowInciSimulation extends Simulation {
             http("request_8")
 			.get("/favicon.ico")))
 
-	setUp(scn.inject(rampUsers(10) over(5 seconds))).protocols(httpProtocol)
+	setUp(scn.inject(rampUsers(100) over(5 seconds))).protocols(httpProtocol)
 }
