@@ -2,7 +2,7 @@ Feature: Being able to login
 Scenario: Login
 
     Given a list of users:
-      | name    | password |
+      | username    | password |
       | o1      | 123456   |
       | o2      | 123456   |
     When I login with name "o1" and password "123456"

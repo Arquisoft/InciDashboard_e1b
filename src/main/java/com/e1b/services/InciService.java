@@ -26,10 +26,6 @@ public class InciService {
 		return inciRepository.findOne(id);
 	}
 
-	public Page<Incidence> getIncidenciasByUser(String op, Pageable pageable) {
-		return inciRepository.findInciByOperario(op, pageable);
-	}
-
 	public List<Incidence> getIncidenciasByUser(String op) {
 		return inciRepository.findInciByOperario(op);
 	}
@@ -44,9 +40,17 @@ public class InciService {
 		return list;
 	}
 
-	public Page<Incidence> findByNotification(String notification,Pageable pageable) {
+	public Page<Incidence> findByNotification(String notification, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return inciRepository.findByNotification(notification,pageable);
+		return inciRepository.findByNotification(notification, pageable);
+	}
+
+	public long numberOfIncidences(String username) {
+		// TODO Auto-generated method stub
+		return inciRepository.findInciByOperario(username).stream().count();
+	}
+	public List<Incidence> findIncidencesByOperario(String username){
+		return inciRepository.findInciByOperario(username);
 	}
 
 }
