@@ -16,6 +16,7 @@ import com.e1b.services.OperariosService;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+@SuppressWarnings("deprecation")
 @ContextConfiguration(classes=InciDashboardApplication.class, loader=SpringApplicationContextLoader.class)
 @IntegrationTest
 @WebAppConfiguration

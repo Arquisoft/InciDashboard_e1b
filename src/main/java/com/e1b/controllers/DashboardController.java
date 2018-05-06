@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DashboardController {
 	
+	@SuppressWarnings("unused")
 	private static final Logger logger = Logger.getLogger(DashboardController.class);
 
     @RequestMapping("/")

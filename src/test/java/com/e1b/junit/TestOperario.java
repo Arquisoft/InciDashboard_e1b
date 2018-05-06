@@ -3,7 +3,6 @@ package com.e1b.junit;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Test;
 
 import com.e1b.entities.Operario;
 

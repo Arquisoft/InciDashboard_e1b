@@ -3,7 +3,6 @@ package com.e1b.junit;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationContextLoader;
@@ -14,6 +13,7 @@ import com.e1b.InciDashboardApplication;
 import com.e1b.entities.Operario;
 import com.e1b.services.OperariosService;
 
+@SuppressWarnings("deprecation")
 @ContextConfiguration(classes=InciDashboardApplication.class, loader=SpringApplicationContextLoader.class)
 @IntegrationTest
 @WebAppConfiguration

@@ -9,8 +9,6 @@ import java.util.Map;
 
 import org.bson.types.ObjectId;
 import org.junit.Before;
-import org.junit.Test;
-
 import com.e1b.entities.Incidence;
 import com.e1b.entities.Operario;
 
