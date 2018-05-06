@@ -28,7 +28,7 @@ public class MessageListener {
 	private InciController inciController;
 
 	@KafkaListener(topics = "hj0am83d-incidences")
-	public void listen(String data) {
+	public void lisener(String data) {
 		logger.info("New incidencia received: \"" + data + "\"");
 		SseEmitter latestEm = inciController.getLatestEmitter();
 
