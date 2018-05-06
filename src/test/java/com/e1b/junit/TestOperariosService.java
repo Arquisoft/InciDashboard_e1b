@@ -33,6 +33,7 @@ public class TestOperariosService {
 		operariosService.addOperario(operario4);
 	}
 
+	@Test
 	public void testAddOperario() {
 		operariosService.addOperario(operario2);
 		operariosService.addOperario(operario1);
@@ -40,6 +41,7 @@ public class TestOperariosService {
 		assertEquals(operariosService.findByUsername("o1"), operario1);
 	}
 
+	@Test
 	public void testFindByUsername() {
 		assertEquals(operariosService.findByUsername("o3"), operario3);
 		assertEquals(operariosService.findByUsername("o4"), operario4);
