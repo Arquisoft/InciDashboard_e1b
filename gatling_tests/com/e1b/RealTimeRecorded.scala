@@ -49,5 +49,5 @@ class RealTimeRecorded extends Simulation {
             http("request_9")
 			.get("/favicon.ico")))
 
-	setUp(scn.inject(rampUsers(100) over(50 seconds))).protocols(httpProtocol)
+	setUp(scn.inject(rampUsers(10000) over(500 seconds))).protocols(httpProtocol)
 }
