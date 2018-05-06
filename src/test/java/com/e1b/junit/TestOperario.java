@@ -55,19 +55,5 @@ public class TestOperario {
 		assertEquals(operario2.getPassword(), "4321");
 	}
 
-//	@Test
-//	public void testGetIncidencias() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testSetIncidencias() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testToString() {
-//		fail("Not yet implemented");
-//	}
 
 }
