@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.e1b.entities.Incidence;
-import com.e1b.kafka.KafkaProducer;
+import com.e1b.kafkaManager.KafkaProducer;
 import com.e1b.services.InciService;
 import com.e1b.services.OperariosService;
 

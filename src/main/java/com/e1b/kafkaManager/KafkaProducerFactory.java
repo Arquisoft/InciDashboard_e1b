@@ -1,4 +1,4 @@
-package com.e1b.kafka;
+package com.e1b.kafkaManager;
 
 import java.util.HashMap;
 import java.util.Map;
