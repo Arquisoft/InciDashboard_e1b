@@ -49,5 +49,8 @@ public class InciService {
 		// TODO Auto-generated method stub
 		return inciRepository.findInciByOperario(username).stream().count();
 	}
+	public List<Incidence> findIncidencesByOperario(String username){
+		return inciRepository.findInciByOperario(username);
+	}
 
 }

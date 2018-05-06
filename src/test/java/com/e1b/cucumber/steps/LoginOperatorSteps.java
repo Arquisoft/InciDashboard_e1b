@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootContextLoader;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -19,9 +19,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-@ContextConfiguration(classes = InciDashboardApplication.class, loader = SpringBootContextLoader.class)
+@SuppressWarnings("deprecation")
+@ContextConfiguration(classes=InciDashboardApplication.class, loader=SpringApplicationContextLoader.class)
+@IntegrationTest
 @WebAppConfiguration
-@ActiveProfiles("INTEGRATION_TEST")
 public class LoginOperatorSteps {
 
 	private Operario operario;

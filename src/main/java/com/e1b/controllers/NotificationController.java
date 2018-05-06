@@ -28,7 +28,7 @@ public class NotificationController
 		notis = inciService.findByNotification("Si",pageable);
 		model.addAttribute("notiList", notis.getContent());
 		model.addAttribute("page", notis);
-		return "/notifications/list";
+		return "nlist";
 	}
 
 }

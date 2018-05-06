@@ -43,6 +43,24 @@ public class Incidence {
 		this.expiration = expireAt;
 		this.assignedTo = assignedTo;
 	}
+	public Incidence(Operario operario, String username, String password, String name, String description, String location,
+			List<String> tags, String additionalInformation, Map<String, String> properties, String state,
+			String notification, String expireAt, String assignedTo){
+		this.operario=operario;
+		this.operario.setUsername(username);
+		this.operario.setPassword(password);
+		setName(name);
+		setDescription(description);
+		setLocation(location);
+		setTags(tags);
+		setAdditionalInformation(additionalInformation);
+		setProperties(properties);
+		setState(state);
+		setNotification(notification);
+		setExpiration(expireAt);
+		setAssignedTo(assignedTo);
+	}
+	
 
 	public String getName() {
 		return name;
