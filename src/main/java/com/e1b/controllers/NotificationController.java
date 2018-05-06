@@ -23,7 +23,7 @@ public class NotificationController
 	InciService inciService;
 
 	@RequestMapping(value = "/notifications/list", method = RequestMethod.GET)
-	public String list(Model model, Principal principal, Pageable pageable) {
+	public String listNoti(Model model, Principal principal, Pageable pageable) {
 		Page<Incidence> notis = new PageImpl<Incidence>(new LinkedList<Incidence>());
 		notis = inciService.findByNotification("Si",pageable);
 		model.addAttribute("notiList", notis.getContent());

@@ -38,7 +38,7 @@ public class InciController {
 	private final List<SseEmitter> emitters = new ArrayList<>();
 
 	@RequestMapping(value = "/incidencias/list", method = RequestMethod.GET)
-	public String list(Model model, Principal principal, Pageable pageable) {
+	public String listInci(Model model, Principal principal, Pageable pageable) {
 		Page<Incidence> incidencias = new PageImpl<Incidence>(new LinkedList<Incidence>());
 		incidencias = inciService.findAll(pageable);
 		model.addAttribute("inciList", incidencias.getContent());
@@ -63,7 +63,7 @@ public class InciController {
 		Incidence inci = inciService.findById(id);
 		inci.setState(status);
 		kafkaProducer.send("hj0am83d-incidencesModify",inci.toString());
-		inciService.addIncidencia(inci);
+		inciService.updateIncidencia(inci);
 		return "redirect:/incidencias/list";
 	}
 

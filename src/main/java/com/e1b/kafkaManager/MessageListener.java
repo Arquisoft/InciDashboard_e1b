@@ -37,18 +37,12 @@ public class MessageListener {
 			inci = new Gson().fromJson(data, Incidence.class);
 			String username = inci.getAssignedTo();
 			inci.setOperario(operariosService.findByUsername(username));
-//			if (inci.getOperario() == null) {
-//				throw new IllegalStateException(
-//						"nombre del operario incorrectamente recibido, no existe en la base de datos");
-//			} else {
 				System.out.println(inci);
 				latestEm.send(inci.toString());
-			//}
 
 		} catch (IOException e) {
 			latestEm.completeWithError(e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

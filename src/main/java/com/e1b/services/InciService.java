@@ -30,7 +30,7 @@ public class InciService {
 		return inciRepository.findInciByOperario(op);
 	}
 
-	public void addIncidencia(Incidence i) {
+	public void updateIncidencia(Incidence i) {
 		inciRepository.save(i);
 	}
 

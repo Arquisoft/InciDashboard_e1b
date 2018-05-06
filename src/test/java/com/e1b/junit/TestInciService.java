@@ -53,20 +53,20 @@ public class TestInciService {
 	
 	@Test
 	public void testFindById() {
-		inciService.addIncidencia(incidencia);
+		inciService.updateIncidencia(incidencia);
 		assertEquals(inciService.findById(id), incidencia);
 	}
 	
 	@Test
 	public void testAddIncidencia() {
-		inciService.addIncidencia(incidencia);
+		inciService.updateIncidencia(incidencia);
 		assertEquals(inciService.numberOfIncidences("o1"), 1);
 	}
 
 
 	@Test
 	public void testFindIncidencesByOperario() {
-		inciService.addIncidencia(incidencia);
+		inciService.updateIncidencia(incidencia);
 		assertEquals(inciService.findIncidencesByOperario("o1"), incidencia);
 	}
 
