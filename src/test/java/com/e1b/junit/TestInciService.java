@@ -20,7 +20,6 @@ import com.e1b.InciDashboardApplication;
 import com.e1b.entities.Incidence;
 import com.e1b.entities.Operario;
 import com.e1b.services.InciService;
-import com.e1b.services.OperariosService;
 
 @ContextConfiguration(classes=InciDashboardApplication.class, loader=SpringApplicationContextLoader.class)
 @IntegrationTest
