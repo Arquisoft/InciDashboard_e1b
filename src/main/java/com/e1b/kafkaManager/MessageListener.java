@@ -28,7 +28,7 @@ public class MessageListener {
 	private InciController inciController;
 
 	@KafkaListener(topics = "hj0am83d-incidences")
-	public void listen(String data) {
+	public void lisener(String data) {
 		logger.info("New incidencia received: \"" + data + "\"");
 		SseEmitter latestEm = inciController.getLatestEmitter();
 
@@ -37,18 +37,12 @@ public class MessageListener {
 			inci = new Gson().fromJson(data, Incidence.class);
 			String username = inci.getAssignedTo();
 			inci.setOperario(operariosService.findByUsername(username));
-//			if (inci.getOperario() == null) {
-//				throw new IllegalStateException(
-//						"nombre del operario incorrectamente recibido, no existe en la base de datos");
-//			} else {
 				System.out.println(inci);
 				latestEm.send(inci.toString());
-			//}
 
 		} catch (IOException e) {
 			latestEm.completeWithError(e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
