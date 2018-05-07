@@ -27,7 +27,6 @@ public class TestOperariosService {
 	
 	@Before
 	public void initialize(){
-		operariosService = new OperariosService();
 		operario1= new Operario("o1", "123456");
 		operario2= new Operario("o2", "1234");
 		operario3= new Operario("o3", "123");

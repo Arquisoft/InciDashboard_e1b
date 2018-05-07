@@ -6,10 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	TestIncidence.class, 
-	TestInciService.class, 
-	TestOperario.class,
-	TestOperariosService.class 
+	TestIncidence.class,  
+	TestOperario.class
 })
 public class AllTests {
 

@@ -50,7 +50,6 @@ public class TestInciService {
 				tags, "información adicional", propiedades, "Abierta",
 				"si", "2018/11/02", "o1");
 		incidencia.set_id(id);
-		inciService = new InciService();
 	}
 	
 	@Test
