@@ -20,7 +20,7 @@ public class Incidence {
 	private Map<String, String> properties;
 	private String state = "Abierta";
 	private String notification;
-	private String expiration;
+	private String expireAt;
 	private String assignedTo;
 
 	public Incidence() {
@@ -40,7 +40,7 @@ public class Incidence {
 		this.properties = properties;
 		this.state = state;
 		this.notification = notification;
-		this.expiration = expireAt;
+		this.expireAt = expireAt;
 		this.assignedTo = assignedTo;
 	}
 	public Incidence(Operario operario, String username, String password, String name, String description, String location,
@@ -57,7 +57,7 @@ public class Incidence {
 		setProperties(properties);
 		setState(state);
 		setNotification(notification);
-		setExpiration(expireAt);
+		setExpireAt(expireAt);
 		setAssignedTo(assignedTo);
 	}
 	
@@ -149,18 +149,18 @@ public class Incidence {
 		this._id = _id;
 	}
 	
-	public String getExpiration() {
-		return expiration;
+	public String getExpireAt() {
+		return expireAt;
 	}
 
-	public void setExpiration(String expiration) {
-		this.expiration = expiration;
+	public void setExpireAt(String expireAt) {
+		this.expireAt = expireAt;
 	}
 
 	@Override
 	public String toString() {
 		return "Incidence [name=" + name + ", description=" + description + ", state=" + state + ", expiration="
-				+ expiration + "]";
+				+ expireAt + "]";
 	}
 
 	

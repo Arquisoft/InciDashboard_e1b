@@ -49,7 +49,7 @@ public class TestIncidence {
 		assertEquals(incidencia.getProperties(), propiedades);
 		assertEquals(incidencia.getState(), "Abierta");
 		assertEquals(incidencia.getNotification(), "si");
-		assertEquals(incidencia.getExpiration(), "2018/11/02");
+		assertEquals(incidencia.getExpireAt(), "2018/11/02");
 		assertEquals(incidencia.getAssignedTo(), "o1");
 
 	}

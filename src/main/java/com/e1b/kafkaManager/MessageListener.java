@@ -37,8 +37,8 @@ public class MessageListener {
 			inci = new Gson().fromJson(data, Incidence.class);
 			String username = inci.getAssignedTo();
 			inci.setOperario(operariosService.findByUsername(username));
-				System.out.println(inci);
-				latestEm.send(inci.toString());
+			System.out.println(inci);
+			latestEm.send(inci.toString());
 
 		} catch (IOException e) {
 			latestEm.completeWithError(e);
