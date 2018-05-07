@@ -25,6 +25,7 @@ import com.e1b.services.InciService;
 @IntegrationTest
 @WebAppConfiguration
 public class TestInciService {
+	
 	@Autowired
 	private InciService inciService;
 	
@@ -49,6 +50,7 @@ public class TestInciService {
 				tags, "información adicional", propiedades, "Abierta",
 				"si", "2018/11/02", "o1");
 		incidencia.set_id(id);
+		inciService = new InciService();
 	}
 	
 	@Test
