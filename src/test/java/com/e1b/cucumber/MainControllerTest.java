@@ -33,5 +33,16 @@ public class MainControllerTest {
   public void testLanding() throws Exception {
     mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Panel de Control InciDashBoard")));
   }
-
+  
+  @Test
+  public void testControllers() throws Exception {
+	  mvc.perform(get("/home")).andExpect(status().isOk()).andExpect(content().string(containsString("Bienvenido a tu pagina personal")));
+	  mvc.perform(get("/login")).andExpect(status().isOk()).andExpect(content().string(containsString("Identificate")));
+	  mvc.perform(get("/map")).andExpect(status().isOk()).andExpect(content().string(containsString("googleMap")));
+	  mvc.perform(get("/notifications/list")).andExpect(status().isOk()).andExpect(content().string(containsString("Notificaciones actuales:")));
+	  mvc.perform(get("/incidencias/list")).andExpect(status().isOk()).andExpect(content().string(containsString("se muestran todas las incidencias registradas en el sistema")));
+	  mvc.perform(get("/incidencias/estado/a")).andExpect(status().is4xxClientError());
+	  mvc.perform(get("/incidencias/statistics")).andExpect(status().isOk()).andExpect(content().string(containsString("<canvas")));
+	  mvc.perform(get("/incidencias/kafka-messages")).andExpect(status().isOk());
+  }
 }
