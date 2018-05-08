@@ -30,6 +30,7 @@ public class Incidence {
 			List<String> tags, String additionalInformation, Map<String, String> properties, String state,
 			String notification, String expireAt, String assignedTo) {
 		super();
+		this.operario=new Operario();
 		this.operario.setUsername(username);
 		this.operario.setPassword(password);
 		this.name = name;
@@ -46,9 +47,9 @@ public class Incidence {
 	public Incidence(Operario operario, String username, String password, String name, String description, String location,
 			List<String> tags, String additionalInformation, Map<String, String> properties, String state,
 			String notification, String expireAt, String assignedTo){
-		this.operario=operario;
-		this.operario.setUsername(username);
-		this.operario.setPassword(password);
+		setOperario(operario);
+		getOperario().setUsername(username);
+		getOperario().setPassword(password);
 		setName(name);
 		setDescription(description);
 		setLocation(location);

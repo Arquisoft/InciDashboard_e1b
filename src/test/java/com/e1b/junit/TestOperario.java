@@ -1,10 +1,14 @@
 package com.e1b.junit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Set;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.e1b.entities.Incidence;
 import com.e1b.entities.Operario;
 
 public class TestOperario {
@@ -16,6 +20,21 @@ public class TestOperario {
 		operario1= new Operario("o1", "123456");
 		operario2= new Operario("o2", "1234");
 		operario99=new Operario();
+	}
+	
+	@Test
+	public void testInidencias() {
+		Operario o=new Operario();
+		Set<Incidence> incidencias=new HashSet<Incidence>();
+		incidencias.add(new Incidence());
+		incidencias.add(new Incidence());
+		o.setIncidencias(incidencias);
+		assertEquals(o.getIncidencias().size(), 2);
+	}
+	
+	@Test
+	public void testToString() {
+		assertEquals(operario1.toString(), operario1.toString());
 	}
 	
 	@Test

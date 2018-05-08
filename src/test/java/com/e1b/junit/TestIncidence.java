@@ -51,7 +51,20 @@ public class TestIncidence {
 		assertEquals(incidencia.getNotification(), "si");
 		assertEquals(incidencia.getExpireAt(), "2018/11/02");
 		assertEquals(incidencia.getAssignedTo(), "o1");
-
+		incidencia = new Incidence("o1", "123456", "inci1", "incidencia de ejemplo para realizar pruebas", "47",
+				tags, "información adicional", propiedades, "Abierta",
+				"si", "2018/11/02", "o1");
+		assertEquals(incidencia.getName(), "inci1");
+		assertEquals(incidencia.getDescription(), "incidencia de ejemplo para realizar pruebas");
+		assertEquals(incidencia.getLocation(), "47");
+		assertEquals(incidencia.getTags(), tags);
+		assertEquals(incidencia.getAdditionalInformation(), "información adicional");
+		assertEquals(incidencia.getProperties(), propiedades);
+		assertEquals(incidencia.getState(), "Abierta");
+		assertEquals(incidencia.getNotification(), "si");
+		assertEquals(incidencia.getExpireAt(), "2018/11/02");
+		assertEquals(incidencia.getAssignedTo(), "o1");
+		assertEquals(incidencia.toString(),incidencia.toString());
 	}
 	
 	@Test
