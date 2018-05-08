@@ -19,6 +19,7 @@ import com.e1b.services.OperariosService;
 @IntegrationTest
 @WebAppConfiguration
 public class TestOperariosService {
+	
 	@Autowired
 	private OperariosService operariosService;
 	
