@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.e1b.entities.Incidence;
 import com.e1b.kafkaManager.KafkaProducer;
+import com.e1b.kafkaManager.MyEmmiter;
 import com.e1b.services.InciService;
 import com.e1b.services.OperariosService;
 
@@ -86,22 +87,13 @@ public class InciController {
 	public SseEmitter getLatestEmitter() {
 		return (emitters.isEmpty()) ? null : emitters.get(emitters.size() - 1);
 	}
+	
 
 	@GetMapping("/incidencias/kafka-messages")
 	public SseEmitter getKafkaMessages() {
 		SseEmitter emitter = new SseEmitter();
-		emitter.onCompletion(new Runnable() {
-			@Override
-			public void run() {
-				emitters.remove(emitter);
-			}
-		});
-		emitter.onTimeout(new Runnable() {
-			@Override
-			public void run() {
-				emitters.remove(emitter);
-			}
-		});
+		emitter.onTimeout(() -> emitters.remove(emitter));
+		emitter.onCompletion(() -> emitters.remove(emitter));
 		emitters.add(emitter);
 		return emitter;
 	}

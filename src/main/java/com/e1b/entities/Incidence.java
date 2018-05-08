@@ -159,10 +159,9 @@ public class Incidence {
 
 	@Override
 	public String toString() {
-		return "Incidence [name=" + name + ", description=" + description + ", state=" + state + ", expiration="
-				+ expireAt + "]";
+		return "{\"name\":\"" + this.name + "\", \"description\":\"" + this.description + "\", \"expireAt\":\"" + this.expireAt + "\", \"state\":\"" + this.state + "\"}";
+		
 	}
-
 	
 
 }
