@@ -2,6 +2,7 @@ package com.e1b.cucumber;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,6 +43,7 @@ public class MainControllerTest {
 	  mvc.perform(get("/notifications/list")).andExpect(status().isOk()).andExpect(content().string(containsString("Notificaciones actuales:")));
 	  mvc.perform(get("/incidencias/list")).andExpect(status().isOk()).andExpect(content().string(containsString("se muestran todas las incidencias registradas en el sistema")));
 	  mvc.perform(get("/incidencias/estado/a")).andExpect(status().is4xxClientError());
+	  mvc.perform(get("/incidencias/estado/5af18af386addc0004c08ae8")).andExpect(status().isOk()).andExpect(content().string(containsString("Cambiar estado")));
 	  mvc.perform(get("/incidencias/statistics")).andExpect(status().isOk()).andExpect(content().string(containsString("<canvas")));
 	  mvc.perform(get("/incidencias/kafka-messages")).andExpect(status().isOk());
   }
