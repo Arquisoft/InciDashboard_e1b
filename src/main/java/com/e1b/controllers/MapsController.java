@@ -31,8 +31,7 @@ public class MapsController {
 			data = new double[2];
 		}
 		
-		model.addAttribute("coordenadas", coordenadas);
-		model.addAttribute("incidencias", incidencias);
+		model.addAttribute("incidencias", coordenadas);
 		return "map";
 	}
 
