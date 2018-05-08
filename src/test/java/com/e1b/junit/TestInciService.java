@@ -25,7 +25,6 @@ import com.e1b.services.InciService;
 @IntegrationTest
 @WebAppConfiguration
 public class TestInciService {
-	
 	@Autowired
 	private InciService inciService;
 	
