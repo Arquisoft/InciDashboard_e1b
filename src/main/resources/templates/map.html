@@ -29,22 +29,24 @@ var mapa;
 function initialize() {
 	var oviedo = new google.maps.LatLng(43.3500,  -5.8500);
 	var mapProp = {
-	   zoom: 10,
+	   zoom: 4,
 	   center: oviedo,
 	 };
    mapa=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-   var theList = [[${incidencias}]]
-   for (i = 0; i < theList.length; i++) {
-   	var l = new google.maps.LatLng(theList[i][0],  theList[i][1]);
-   	addMarcador(l,theList[i].name)
+   var coor = [[${coordenadas}]]
+   var incis = [[${incidencias}]]
+   for (i = 0; i < coor.length; i++) {
+   	var l = new google.maps.LatLng(coor[i][0],  coor[i][1]);
+   	addMarcador(l,incis[i])
    }
 }
 
-function addMarcador(localizacion,name) {
+function addMarcador(localizacion,inci) {
 	var marcador = new google.maps.Marker({
 	  position: localizacion,
 	  map: mapa,
-	  title: name
+	  animation: google.maps.Animation.DROP,
+	  title: inci.name + ': '+inci.description
 	});
 }
 
