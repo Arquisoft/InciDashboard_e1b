@@ -2,6 +2,8 @@ package com.e1b.controllers;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class InciController {
 	@Autowired
 	KafkaProducer kafkaProducer;
 
-	private final List<SseEmitter> emitters = new ArrayList<>();
+	private final List<SseEmitter> emitters = Collections.synchronizedList(new ArrayList<>());
 
 	@RequestMapping(value = "/incidencias/list", method = RequestMethod.GET)
 	public String listInci(Model model, Principal principal, Pageable pageable) {

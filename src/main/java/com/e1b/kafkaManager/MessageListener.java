@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter.SseEventBuilder;
 
 import com.e1b.controllers.InciController;
 import com.e1b.entities.Incidence;
@@ -40,7 +41,7 @@ public class MessageListener {
 			emitter.complete();
 		    }
 		}
-		
 
 	}
+	
 }
