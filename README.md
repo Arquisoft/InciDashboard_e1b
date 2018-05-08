@@ -14,13 +14,10 @@ InciDashboard e1b
 - Sergio Rodríguez Artime (UO248043)
 
 # Instalación y ejecución de Apache Kafka:
-Vamos a la página web de apache kafka, en el enlace a la descarga escogemos el primer mirror. Una vez descargado descomprimimos el archivo una vez y dentro de este aparecerá otro archivo que volvemos a descomprimir.
-Abrimos la ventana de comandos:
-- Nos desplazamos hasta la carpeta donde se encuentra kafka_2.11-1.0.1
-- Ejecutamos bin\windows\zookeeper-server-start.bat config\zookeeper.properties
-- Ejecutamos bin\windows\kafka-server-start.bat config\server.properties
+Apache kafka esta desplegado en (insertar sitio y enlace)
 
-Si da error borramos la carpeta c temp kafka logs
+# Despliegue
+La aplicacion esta desplegada usando heroku en (inserte enlace)
 
 # Ejecución:	
 - Abrimos una linea de comandos dentro de la carpeta del proyecto y escribimos mvn spring-boot:run
